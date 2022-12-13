@@ -1,14 +1,17 @@
 {   
-    "plugins": ["prettier", "import", "@typescript-eslint"],
+    "root": true,
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "prettier"
-    ],
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",
@@ -17,13 +20,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "@typescript-eslint/no-explicit-any": "error",
-        "prettier/prettier": [
-            "error",
-            {
-              "endOfLine": "auto"
-            }
-        ]
+        "semi": ["error", "always"],
+        "@typescript-eslint/no-explicit-any": "error"
     },
     "ignorePatterns": ["**/*.js"]
 }
