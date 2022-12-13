@@ -1,0 +1,11 @@
+@import './_variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: calc(.2rem + 1vw);
+    color: $color-decoration;
+    font-family: Philosopher,sans-serif;
+    word-wrap: break-word;
+}
