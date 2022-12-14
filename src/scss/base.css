@@ -1,14 +1,14 @@
-.main__products, .main__filters, .header-main {
+.main__products, .main__filters, .header {
   border: 1px solid orange;
   border-radius: 0.7rem;
 }
 
-.header-main {
+footer, .header {
   padding-left: 2%;
   padding-right: 2%;
 }
 
-.header-main {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,6 +84,10 @@
   border: 1px solid orange;
   font-size: 130%;
   border-radius: 50%;
+}
+
+html {
+  background-image: url("../images/decorative/bg.jpg");
 }
 
 .main-main {
@@ -255,6 +259,23 @@
 .product-item {
   width: 23%;
   padding-top: 20%;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5vh;
+  width: 100%;
+  background-color: rgba(24, 26, 28, 0.5);
+  color: orange;
+  border-top: 2px solid orange;
+  border-radius: 1.5rem 1.5rem 0 0;
+  font-size: 70%;
+}
+
+.course-logo {
+  width: 2%;
 }
 
 * {
