@@ -1,7 +1,8 @@
-@import './_variables.scss';
-@import './extends';
+@import './base-stuff/_variables.scss';
+@import './base-stuff/_extends';
 
-@import './header-main';
+@import './main-page/header-main';
+@import './main-page/main-main';
 
 * {
     margin: 0;
