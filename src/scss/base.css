@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: calc(0.2rem + 1vw);
+  color: orange;
+  font-family: Philosopher, sans-serif;
+  word-wrap: break-word;
+}/*# sourceMappingURL=base.css.map */
