@@ -1,9 +1,44 @@
+.header-main {
+  display: flex;
+  width: 100%;
+  background-color: #181a1c;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: calc(0.2rem + 1vw);
   color: orange;
-  font-family: Philosopher, sans-serif;
   word-wrap: break-word;
+  font-family: Philosopher, sans-serif;
+  font-size: calc(0.2rem + 1vw);
+}
+
+p {
+  font-size: 0.6rem;
+  color: wheat;
+}
+
+button {
+  background-color: #181a1c;
+  border: 1px solid orange;
+  border-radius: 0.3rem;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+input {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+label, span {
+  color: #f8cc7b;
+}
+
+h3 {
+  text-align: center;
+  background-color: #181a1c;
 }/*# sourceMappingURL=base.css.map */

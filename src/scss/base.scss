@@ -1,11 +1,37 @@
 @import './_variables.scss';
+@import './extends';
+
+@import './header-main';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: calc(.2rem + 1vw);
     color: $color-decoration;
-    font-family: Philosopher,sans-serif;
     word-wrap: break-word;
+    font-family: Philosopher,sans-serif;
+    font-size: calc(.2rem + 1vw);
+}
+p{
+    font-size: .6rem;
+    color: $color-text;
+}
+button{
+    background-color: #181a1c;
+    border: 1px solid orange;
+    border-radius: 0.3rem;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 120%;
+    cursor: pointer;
+}
+input{
+    cursor: grab;
+}
+label, span{
+    color: $color-text2;
+}
+h3{
+    text-align: center;
+    background-color: $color-background-elements;
 }
