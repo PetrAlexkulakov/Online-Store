@@ -1,4 +1,7 @@
 @import './_variables.scss';
+@import './extends';
+
+@import './header-main';
 
 * {
     margin: 0;
@@ -8,4 +11,7 @@
     word-wrap: break-word;
     font-family: Philosopher,sans-serif;
     font-size: calc(.2rem + 1vw);
+}
+html{
+    font-size: 10px;
 }
