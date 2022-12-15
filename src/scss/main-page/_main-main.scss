@@ -1,5 +1,9 @@
 html{
-    background-image: $img-main-background;
+    background-image: url('./../images/decorative/bg.jpg');
+}
+img{
+    width: 78px;
+    height: 30%;
 }
 .main-main{
     display: flex;

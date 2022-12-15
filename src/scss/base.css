@@ -87,7 +87,12 @@ footer, .header {
 }
 
 html {
-  background-image: url("../images/decorative/bg.jpg");
+  background-image: url("./../images/decorative/bg.jpg");
+}
+
+img {
+  width: 78px;
+  height: 30%;
 }
 
 .main-main {
