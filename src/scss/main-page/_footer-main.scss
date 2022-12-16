@@ -1,7 +1,7 @@
 footer{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     min-height: 5vh;
     width: 100%;
     background-color: $color-block-background;
@@ -12,6 +12,9 @@ footer{
     @extend %paddings-default;
 }
 .course-logo{
-    width: 2%;
-   // background-image: url('../../images/rsschool.png');
+    width: 5%;
+    height: 1.6rem;
+    background-image: url('./../images/rsschool.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
