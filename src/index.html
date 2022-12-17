@@ -49,15 +49,23 @@
         <div class="main__products">
             <div class="products__sort-products">
                 <div class="sort-bar">
-                    <select name="" id="" class="sort-bar__select"></select>
+                    <select name="" id="" class="sort-bar__select">
+                        <option value="title">Sort options:</option>
+                        <option value="price-ASC">Sort by price ASC</option>
+                        <option value="price-DESC">Sort by price DESC</option>
+                        <option value="rating-ASC">Sort by rating ASC</option>
+                        <option value="rating-DESC">Sort by rating DESC</option>
+                        <option value="discount-ASC">Sort by discount ASC</option>
+                        <option value="discount-DESC">Sort by discount DESC</option>
+                    </select>
                 </div>
                 <div class="founds">Found: 1</div>
                 <div class="search-bar">
                     <input type="text" class="search-bar__input">
                 </div>
                 <div class="view-mode">
-                    <div class="view-mode small-mode"></div>
-                    <div class="view-mode big-mode"></div>
+                    <div class="small-mode"></div>
+                    <div class="big-mode"></div>
                 </div>
             </div>
             <div class="products__items-products"></div>

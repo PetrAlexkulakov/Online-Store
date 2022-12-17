@@ -1,0 +1,22 @@
+.small-point{
+    white-space: nowrap;
+    width: 12%;
+    height: 12%;
+    margin: 2%;
+    font-size: 50%;
+    border-radius: 100%;
+    overflow: hidden;
+    background: orange;
+    user-select: none;
+}
+.big-point{
+    white-space: nowrap;
+    width: 20%;
+    height: 20%;
+    margin: 2%;
+    font-size: 50%;
+    border-radius: 100%;
+    overflow: hidden;
+    background: orange;
+    user-select: none;
+}
