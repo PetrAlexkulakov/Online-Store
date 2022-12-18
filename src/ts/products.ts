@@ -17,6 +17,7 @@ function _putProduct(product: productType){
     const item = document.createElement('div');
     item.classList.add('product-item');
     item.style.background = `url(${product.images[0]}) 0% 0% / cover`;
+    item.setAttribute('id', String(product.id));
     itemsProducts?.appendChild(item);
 
     const itemText = document.createElement('div');
@@ -53,7 +54,7 @@ function _putSmallDescription(element: HTMLDivElement, product: productType){
     element.appendChild(price);
 
     const discount = document.createElement('p');
-    discount.textContent = `Discount: ${product.discountPercentage}`;
+    discount.textContent = `Discount: ${product.discountPercentage}%`;
     element.appendChild(discount);
 
     const rating = document.createElement('p');
