@@ -99,7 +99,7 @@ function _eventButtons(item: HTMLDivElement, product: productType){
     addCart.addEventListener('click', () => {
         if (addCart.textContent === 'ADD TO CART'){
             localStorage.setItem('cartProductId', 
-            localStorage.getItem('cartProductId') || '' + ',' + String(product.id));
+            `${localStorage.getItem('cartProductId') || ''},${String(product.id)}`);
             total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
             addCart.textContent = 'DROP FROM CART';
             cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
