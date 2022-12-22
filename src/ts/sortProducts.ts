@@ -28,7 +28,8 @@ function _createViewSort(){
 
 function _clickModeEvent(small: HTMLDivElement, big: HTMLDivElement) {
     const allProducts = document.querySelectorAll('.product-item');
-    const itemInfo = Array.from(document.getElementsByClassName('info__item-info') as HTMLCollectionOf<HTMLDivElement>);
+    const itemInfo = 
+    Array.from(document.getElementsByClassName('info__item-info') as HTMLCollectionOf<HTMLDivElement>);
     let isBig = true;
 
     if (window.location.search.includes('big=false')) isBig = false;
@@ -72,7 +73,9 @@ function _sortBySortOption(){
     if (option != undefined){
         const productExample = dataProducts.products[0];
         const sortType: keyof typeof productExample = 
-        option.replace(/Sort by|-DESC|-ASC/i,'') == 'discount' ? 'discountPercentage' as keyof typeof productExample : option.replace(/Sort by|-DESC|-ASC/i,'') as keyof typeof productExample;
+        option.replace(/Sort by|-DESC|-ASC/i,'') == 'discount' ? 
+        'discountPercentage' as keyof typeof productExample : 
+        option.replace(/Sort by|-DESC|-ASC/i,'') as keyof typeof productExample;
         const sortUp = option.match(/ASC/) !== null ? true : false;
         const nav = <HTMLElement>document.querySelector('.products__items-products');
         const sortDOM = document.querySelector<HTMLSelectElement>('.sort-bar__select');

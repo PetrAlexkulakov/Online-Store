@@ -55,7 +55,7 @@ function _createFiltersWork(){
 
 export function filtraite(){
     const products = document.querySelectorAll('.product-item');
-    const filters = window.location.search.replace(/&.*=/, '&').replace(/^.*=/, '').split(/%E2%86%95|&/);
+    const filters = window.location.search.replace(/\?categories=|\?sort=|\?brand=|\?big=/,'').replace(/categories=|sort=|brand=|big=/g, '&').split(/%E2%86%95|&/);
     const allFiltersHTML = document.querySelectorAll('.filter-list');
     let hasCategory = false;
     let hasBrand = false;
