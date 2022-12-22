@@ -67,10 +67,18 @@ function _putSmallDescription(element: HTMLDivElement, product: productType){
 }
 
 function _createItemButtons(wrapper: HTMLDivElement, product: productType){
+    const total = document.querySelector('.total-price__price') as HTMLDivElement;
+    const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
+
     const buttonsWrapper = document.createElement('div');
     buttonsWrapper.classList.add('items__wrapper-buttons');
     const addCart = document.createElement('button');
     addCart.classList.add('button-add');
+    if (localStorage.getItem('cartProductId')?.includes(String(product.id))){
+        total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
+        addCart.textContent = 'DROP FROM CART';
+        cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
+    } else
     addCart.textContent = 'ADD TO CART';
     buttonsWrapper.appendChild(addCart);
 
@@ -85,20 +93,21 @@ function _createItemButtons(wrapper: HTMLDivElement, product: productType){
 function _eventButtons(item: HTMLDivElement, product: productType){
     const addCart = item.querySelector('.button-add') as HTMLButtonElement;
     const details = item.querySelector('.button-details') as HTMLButtonElement;
+    const total = document.querySelector('.total-price__price') as HTMLDivElement;
+    const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
 
     addCart.addEventListener('click', () => {
         if (addCart.textContent === 'ADD TO CART'){
-            const total = document.querySelector('.total-price__price') as HTMLDivElement;
-            const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
-
+            localStorage.setItem('cartProductId', 
+            localStorage.getItem('cartProductId') || '' + ',' + String(product.id));
             total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
             addCart.textContent = 'DROP FROM CART';
             cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
         }
         else{
-            const total = document.querySelector('.total-price__price') as HTMLDivElement;
-            const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
-
+            const nowCart = localStorage.getItem('cartProductId')?.split(',').splice(0,1);
+            if (nowCart != undefined)
+            localStorage.setItem('cartProductId',nowCart?.splice(nowCart.indexOf(String(product.id)),1).join(','));
             total.textContent = `Cart total: €${Number(total.textContent?.replace('Cart total: €', '')) - Number(product.price)}`;
             addCart.textContent = 'ADD TO CART';
             cartNumber.textContent = String(Number(cartNumber.textContent) - 1);
