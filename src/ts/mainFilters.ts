@@ -57,6 +57,13 @@ export function filtraite(){
     const products = document.querySelectorAll('.product-item');
     const filters = window.location.search.replace(/&.*=/, '&').replace(/^.*=/, '').split(/%E2%86%95|&/);
     const allFiltersHTML = document.querySelectorAll('.filter-list');
+    let hasCategory = false;
+    let hasBrand = false;
+
+    dataProducts.products.forEach((item) => {
+        if (filters.indexOf(item.category) !== -1) hasCategory = true;
+        if (filters.indexOf(item.brand) !== -1) hasBrand = true;
+    });
 
     allFiltersHTML.forEach((filter) => {
         if (filters.includes(filter.id)){
@@ -70,10 +77,20 @@ export function filtraite(){
         const productInData = dataProducts.products.find((item) => item.id == +product.id);
 
         if (productInData != undefined && filters != undefined){
-            
-            if (filters.indexOf(productInData.category) !== -1  && filters.indexOf(productInData.brand) !== -1)
-            product.classList.remove('hide');
-            else product.classList.add('hide');
+
+            if (hasCategory && hasBrand){
+                if (filters.indexOf(productInData.category) !== -1 && filters.indexOf(productInData.brand) !== -1)
+                product.classList.remove('hide');
+                else product.classList.add('hide');
+            } else if (hasCategory){
+                if (filters.indexOf(productInData.category) !== -1)
+                product.classList.remove('hide');
+                else product.classList.add('hide');
+            }else if (hasBrand){
+                if (filters.indexOf(productInData.brand) !== -1)
+                product.classList.remove('hide');
+                else product.classList.add('hide');
+            }
         }
         else product.classList.remove('hide');
         if (filters[0] === '') product.classList.remove('hide');
