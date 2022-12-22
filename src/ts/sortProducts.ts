@@ -56,48 +56,56 @@ function _clickModeEvent(small: HTMLDivElement, big: HTMLDivElement) {
 
 function _createSortOptions(){
     const sortOption = document.querySelector('.sort-bar__select');
+    _sortBySortOption();
 
     sortOption?.addEventListener('change', function(e) {
-        
-        if(e.target instanceof HTMLSelectElement) _sortBySortOption(e.target.value);
-        
-
+        if(e.target instanceof HTMLSelectElement) {
+            addQuery('sort',e.target.value);
+        }
     });
 }
 
-function _sortBySortOption(option: string){
-    const productExample = dataProducts.products[0];
-    const sortType: keyof typeof productExample = 
-    option.replace(/Sort by|-DESC|-ASC/i,'') == 'discount' ? 'discountPercentage' as keyof typeof productExample : option.replace(/Sort by|-DESC|-ASC/i,'') as keyof typeof productExample;
-    const sortUp = option.match(/ASC/) !== null ? true : false;
-    const nav = <HTMLElement>document.querySelector('.products__items-products');
+function _sortBySortOption(){
+    const oldSearch = window.location.search.slice(1,);
+    const oldSearchArray = oldSearch.split('&');
+    const option = oldSearchArray.find(item => item.includes('sort'))?.replace(/sort=/,'');
+    if (option != undefined){
+        const productExample = dataProducts.products[0];
+        const sortType: keyof typeof productExample = 
+        option.replace(/Sort by|-DESC|-ASC/i,'') == 'discount' ? 'discountPercentage' as keyof typeof productExample : option.replace(/Sort by|-DESC|-ASC/i,'') as keyof typeof productExample;
+        const sortUp = option.match(/ASC/) !== null ? true : false;
+        const nav = <HTMLElement>document.querySelector('.products__items-products');
+        const sortDOM = document.querySelector<HTMLSelectElement>('.sort-bar__select');
 
-    if (sortUp){
-        for (let i = 0; i < nav?.children.length; i++){
-            for (let j = i; j < nav?.children.length; j++){
-                const firsItem = 
-                dataProducts.products.find(product => String(product.id) === nav.children[i].getAttribute('id'));
-                const secondItem = 
-                dataProducts.products.find(product => String(product.id) === nav.children[j].getAttribute('id'));
-                if (firsItem !== undefined && secondItem !== undefined){
-                    if (+firsItem[sortType] > +secondItem[sortType]) {
-                        const replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
-                        _insertAfter(replacedNode, nav.children[i]);
+        if (sortDOM != null) sortDOM.value = option;
+
+        if (sortUp){
+            for (let i = 0; i < nav?.children.length; i++){
+                for (let j = i; j < nav?.children.length; j++){
+                    const firsItem = 
+                    dataProducts.products.find(product => String(product.id) === nav.children[i].getAttribute('id'));
+                    const secondItem = 
+                    dataProducts.products.find(product => String(product.id) === nav.children[j].getAttribute('id'));
+                    if (firsItem !== undefined && secondItem !== undefined){
+                        if (+firsItem[sortType] > +secondItem[sortType]) {
+                            const replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                            _insertAfter(replacedNode, nav.children[i]);
+                        }
                     }
                 }
             }
-        }
-    } else{
-        for (let i = 0; i < nav?.children.length; i++){
-            for (let j = i; j < nav?.children.length; j++){
-                const firsItem = 
-                dataProducts.products.find(product => String(product.id) === nav.children[i].getAttribute('id'));
-                const secondItem = 
-                dataProducts.products.find(product => String(product.id) === nav.children[j].getAttribute('id'));
-                if (firsItem !== undefined && secondItem !== undefined){
-                    if (+firsItem[sortType] < +secondItem[sortType]) {
-                        const replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
-                        _insertAfter(replacedNode, nav.children[i]);
+        } else{
+            for (let i = 0; i < nav?.children.length; i++){
+                for (let j = i; j < nav?.children.length; j++){
+                    const firsItem = 
+                    dataProducts.products.find(product => String(product.id) === nav.children[i].getAttribute('id'));
+                    const secondItem = 
+                    dataProducts.products.find(product => String(product.id) === nav.children[j].getAttribute('id'));
+                    if (firsItem !== undefined && secondItem !== undefined){
+                        if (+firsItem[sortType] < +secondItem[sortType]) {
+                            const replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                            _insertAfter(replacedNode, nav.children[i]);
+                        }
                     }
                 }
             }
