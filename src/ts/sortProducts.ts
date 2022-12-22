@@ -1,4 +1,5 @@
 import { dataProducts } from "./dataProducts";
+import { addQuery } from "./Router";
 
 export function createSorts(){
     _createViewSort();
@@ -26,27 +27,30 @@ function _createViewSort(){
 }
 
 function _clickModeEvent(small: HTMLDivElement, big: HTMLDivElement) {
-    small.addEventListener('click', () => {
-        const allProducts = document.querySelectorAll('.product-item');
-        const itemInfo = Array.from(document.getElementsByClassName('info__item-info') as HTMLCollectionOf<HTMLDivElement>);
+    const allProducts = document.querySelectorAll('.product-item');
+    const itemInfo = Array.from(document.getElementsByClassName('info__item-info') as HTMLCollectionOf<HTMLDivElement>);
+    let isBig = true;
 
-        allProducts.forEach((product) => {
-            product.classList.add('small-item');
-        });
-        itemInfo.forEach((item) => {
-            item.style.display = 'none';
-        });
+    if (window.location.search.includes('big=false')) isBig = false;
+
+    allProducts.forEach((product) => {
+        if(!isBig)
+        product.classList.add('small-item');
+        else product.classList.remove('small-item');
+    });
+    itemInfo.forEach((item) => {
+        if(!isBig)
+        item.style.display = 'none';
+        else item.style.display = '';
+    });
+    if (isBig) big.classList.add('active-view');
+    else small.classList.add('active-view');
+
+    small.addEventListener('click', () => {
+        addQuery('big', false);
     });
     big.addEventListener('click', () => {
-        const allProducts = document.querySelectorAll('.product-item');
-        const itemInfo = Array.from(document.getElementsByClassName('info__item-info') as HTMLCollectionOf<HTMLDivElement>);
-
-        allProducts.forEach((product) => {
-            product.classList.remove('small-item');
-        });
-        itemInfo.forEach((item) => {
-            item.style.display = '';
-        });
+        addQuery('big', true);
     });
 }
 

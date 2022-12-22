@@ -364,6 +364,10 @@ footer {
           user-select: none;
 }
 
+.active-view {
+  box-shadow: 0 0 3px 1px #c45f07;
+}
+
 * {
   margin: 0;
   padding: 0;

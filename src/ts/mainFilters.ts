@@ -91,6 +91,7 @@ export function filtraite(){
                 product.classList.remove('hide');
                 else product.classList.add('hide');
             }
+            
         }
         else product.classList.remove('hide');
         if (filters[0] === '') product.classList.remove('hide');
