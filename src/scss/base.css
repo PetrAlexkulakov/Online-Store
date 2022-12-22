@@ -400,4 +400,8 @@ label, span {
 h3 {
   text-align: center;
   background-color: #181a1c;
+}
+
+.hide {
+  display: none;
 }/*# sourceMappingURL=base.css.map */
