@@ -10,7 +10,7 @@ export function putProducts(){
     founds.textContent = `Founds: ${dataProducts.total}`;
     products.forEach((product) => _putProduct(product));
     createSorts();
-    createSearch();
+    
 }
 
 function _putProduct(product: productType){
