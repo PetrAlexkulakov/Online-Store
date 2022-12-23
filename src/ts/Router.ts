@@ -5,7 +5,11 @@ export function addQuery(option: string, name: string | boolean){
 
     if (oldSearch === '') window.location.search = `${option}=${name}`;
     else if (ourFilter === undefined) window.location.search = `${oldSearch}&${option}=${name}`;
-    else if (typeof(name) === 'string' && option !== 'sort'){
+    else if (name === ''){
+        const reg = new RegExp(`${option}=.`);
+        window.location.search = oldSearch.replace(reg,'');
+    }
+    else if (typeof(name) === 'string' && option !== 'sort' && option !== 'search'){
         if (ourFilter.includes(String(name))){ 
             if (ourFilter.includes(`%E2%86%95${name}`))
                 window.location.search = oldSearch.replace(`%E2%86%95${name}`, '');

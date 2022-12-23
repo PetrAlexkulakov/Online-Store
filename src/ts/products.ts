@@ -1,5 +1,6 @@
 import { dataProducts } from "./dataProducts";
 import { createSorts } from "./sortProducts";
+import { createSearch } from "./mainSearch";
 
 type productType = typeof dataProducts.products[1];
 export function putProducts(){
@@ -9,6 +10,7 @@ export function putProducts(){
     founds.textContent = `Founds: ${dataProducts.total}`;
     products.forEach((product) => _putProduct(product));
     createSorts();
+    createSearch();
 }
 
 function _putProduct(product: productType){
