@@ -23,3 +23,38 @@
 .active-view{
     box-shadow: 0 0 3px 1px #c45f07;
 }
+.price__range-input{
+    width: 96%;
+    margin: 2%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(orange,orange) no-repeat center;
+    overflow: hidden;
+    background-size: 100% 2px;
+    pointer-events: none;
+}
+.price__range-input::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background:$color-decoration;
+    border-radius: 50%;
+    height:20px;
+    width:20px;
+    border: 2px solid $color-background-elements;
+    pointer-events: all;
+    cursor: pointer;
+}
+.price__range-input::-moz-range-thumb {
+    -webkit-appearance: none;
+    pointer-events: all;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;  
+  }
+.price__range-input1, .stock__range-input1{
+    position: absolute;
+    z-index: 1;
+}
+.price__range-input2, .stock__range-input2{
+    background: none;
+    position: absolute;
+}

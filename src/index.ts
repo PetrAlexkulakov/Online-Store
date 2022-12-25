@@ -3,6 +3,8 @@ import { createFilters } from "./ts/mainFilters";
 import { putProducts } from "./ts/products";
 import { filtraite } from "./ts/mainFilters";
 import { createSearch } from "./ts/mainSearch";
+import { createFilterButtons } from "./ts/mainFilterButtons";
+import { createFiltersSlide } from "./ts/mainFiltersSlide";
 
 const page = document.body;
 
@@ -12,5 +14,7 @@ switch(page.id){
         createFilters();
         filtraite();
         createSearch();
-        break;
+        createFilterButtons();
+        createFiltersSlide();
+    break;
 }

@@ -9,7 +9,7 @@ export function addQuery(option: string, name: string | boolean){
         const reg = new RegExp(`${option}=.`);
         window.location.search = oldSearch.replace(reg,'');
     }
-    else if (typeof(name) === 'string' && option !== 'sort' && option !== 'search'){
+    else if (typeof(name) === 'string' && option !== 'sort' && option !== 'search' && option !== 'price' && option !== 'stock'){
         if (ourFilter.includes(String(name))){ 
             if (ourFilter.includes(`%E2%86%95${name}`))
                 window.location.search = oldSearch.replace(`%E2%86%95${name}`, '');
