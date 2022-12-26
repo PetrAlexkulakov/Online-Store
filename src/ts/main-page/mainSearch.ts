@@ -1,5 +1,5 @@
-import { addQuery } from "./Router";
-import { dataProducts } from "./dataProducts";
+import { addQuery } from "../Router";
+import { dataProducts } from "../dataProducts";
 
 export function createSearch(){
     const searchDOM = document.querySelector<HTMLInputElement>('.search-bar__input');

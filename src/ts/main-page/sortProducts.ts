@@ -1,5 +1,5 @@
-import { dataProducts } from "./dataProducts";
-import { addQuery } from "./Router";
+import { dataProducts } from "../dataProducts";
+import { addQuery } from "../Router";
 
 export function createSorts(){
     _createViewSort();

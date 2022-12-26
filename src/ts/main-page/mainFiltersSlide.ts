@@ -1,5 +1,5 @@
-import { addQuery } from "./Router";
-import { dataProducts } from "./dataProducts";
+import { addQuery } from "../Router";
+import { dataProducts } from "../dataProducts";
 
 interface ourPrice extends HTMLDivElement{
   price: string

@@ -1,4 +1,4 @@
-import { dataProducts } from "./dataProducts";
+import { dataProducts } from "../dataProducts";
 import { createSorts } from "./sortProducts";
 
 type productType = typeof dataProducts.products[1];

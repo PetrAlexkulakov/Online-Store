@@ -1,10 +1,10 @@
 import "./scss/base.css";
-import { createFilters } from "./ts/mainFilters";
-import { putProducts } from "./ts/products";
-import { filtraite } from "./ts/mainFilters";
-import { createSearch } from "./ts/mainSearch";
-import { createFilterButtons } from "./ts/mainFilterButtons";
-import { createFiltersSlide } from "./ts/mainFiltersSlide";
+import { createFilters } from "./ts/main-page/mainFilters";
+import { putProducts } from "./ts/main-page/products";
+import { filtraite } from "./ts/main-page/mainFilters";
+import { createSearch } from "./ts/main-page/mainSearch";
+import { createFilterButtons } from "./ts/main-page/mainFilterButtons";
+import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
 
 const page = document.body;
 
