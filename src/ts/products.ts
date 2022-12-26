@@ -140,9 +140,6 @@ function _eventButtons(item: HTMLDivElement, product: productType){
             cartProducts.splice(cartProducts.indexOf(productInCart),1);
 
             localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-            // const nowCart = localStorage.getItem('cartProducts')?.split(',').splice(0,1);
-            // if (nowCart != undefined)
-            // localStorage.setItem('cartProducts',nowCart?.splice(nowCart.indexOf(String(product.id)),1).join(','));
             total.textContent = `Cart total: €${Number(total.textContent?.replace('Cart total: €', '')) - Number(product.price)}`;
             addCart.textContent = 'ADD TO CART';
             cartNumber.textContent = String(Number(cartNumber.textContent) - 1);

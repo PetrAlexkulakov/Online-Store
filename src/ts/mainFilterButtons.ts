@@ -6,6 +6,8 @@ export function createFilterButtons(){
         window.location.search = '';
     });
     copy?.addEventListener('click', () => {
+        copy.textContent = 'Copied!';
+        setTimeout((copy) => copy.textContent = 'Copy Link', 500, copy);
         _copyToClipboard(window.location.href);
     });
 }
