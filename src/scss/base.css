@@ -313,6 +313,11 @@ img {
   justify-content: space-around;
 }
 
+.no-products {
+  display: none;
+  font-size: 3rem;
+}
+
 footer {
   display: flex;
   align-items: center;

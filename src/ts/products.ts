@@ -10,12 +10,23 @@ interface productInLocal{
 
 export function putProducts(){
     const products = dataProducts.products;
-    const founds = document.querySelector('.founds') as HTMLDivElement;
 
-    founds.textContent = `Founds: ${dataProducts.total}`;
     products.forEach((product) => _putProduct(product));
     createSorts();
-    
+
+    setTimeout(() => 
+    {
+        const founds = document.querySelector('.founds') as HTMLDivElement;
+        const productsCount = Array.from(document.querySelectorAll('.product-item'))
+        .filter((product) => product.classList.contains('hide') === false).length;
+        founds.textContent = `Founds: ${productsCount}`;
+        if (productsCount === 0) {
+            const noMessage = document.querySelector<HTMLSpanElement>('.no-products');
+            
+            if (noMessage !== null)
+            noMessage.style.display = "block";
+        }
+    }, 1);
 }
 
 function _putProduct(product: productType){
