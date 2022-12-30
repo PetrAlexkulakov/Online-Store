@@ -24,78 +24,49 @@
     </header>
     <main class="main-main">
         <div class="cart-page">
+            
             <div class="cart-wrapper">
                 <div class="cart-products">
-                    <div class="cart-products-header">
+                    <div class="cart-products__header">
                         <h2>
                             Products In Cart
                         </h2>
                         <div class="page-control">
                             <div class="products-amount">
-                                <label for="amout"><span class="amount-text">ITEMS:</span></label>
-                                <input type="text" id="amout" class="amount-input" value=2> 
+                                <label for="amoutInput"><span class="products-amount__text">LIMIT:</span></label>
+                                <input type="number" id="amoutInput" class="products-amount__input" min="1" value="3">
                             </div>
                             <div class="page-numbers">
-                                <span class="page-text">PAGE:</span>
-                                <button class="page-btn-left">
+                                <span class="page-numbers__text">PAGE:</span>
+                                <button class="page-btn-back">
                                     < </button>
                                         <span class="page-number">1</span>
-                                        <button class="page-btn-right"> > </button>
+                                        <button class="page-btn-forward"> > </button>
                             </div>
                         </div>
                     </div>
-                    <div class="cart-products-items">
-                        <div class="cart-products-items-wrapper">
-                            <div class="cart-product-item">
-                                <div class="item-i">1</div>
-                                <div class="item-info">
-                                    <img class="item-info-img" src="" alt="">
-                                    <div class="item-info-detail">
-                                        <div class="item-title">
-                                            <h3>Samsung</h3>
-                                        </div>
-                                        <div class="item-description">
-                                            <span>Samsung Galaxy Book</span>
-                                        </div>
-                                        <div class="item-other">
-                                            <p>Rating: 4.2</p>
-                                            <p>Discount: 4.15%</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item-number-control">
-                                    <div class="item-stock-control">
-                                        <span>Stock: 50</span>
-                                    </div>
-                                    <div class="item-number-control-btns">
-                                        <button class="item-number-control-btn">+</button>
-                                        <span>1</span>
-                                        <button class="item-number-control-btn">-</button>
-                                    </div>
-                                    <div class="item-price">$1,499.00</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="cart-products__items">
+                       <!-- <div class="empty-cart"></div> -->
                     </div>
-                   
+
                 </div>
                 <div class="total-cart">
                     <h2>Summary</h2>
                     <div class="total-price">
-                        <span class="total-price-text">Products:</span>
-                        <span>3</span>
+                        <span class="total-price__text">Products:</span>
+                        <span class="total-items">0</span>
                     </div>
                     <div class="total-price">
-                        <span class="total-price-text">Total:</span>
-                        <span>$4446</span>
+                        <span class="total-price__text">Total:</span>
+                        <span class="total-money">€0</span>
                     </div>
                     <div class="promo-code">
                         <input type="search" placeholder="Enter promo code">
                     </div>
                     <span class="promo-ex">
-                     Promo for test: 'RS', 'EPM'
+                        Promo for test: 'RS', 'EPM'
                     </span>
-                    <button class="btn-buy-now">BUY NOW</button>
+                    <button class="btn__buy-now">BUY NOW</button>
                 </div>
             </div>
         </div>

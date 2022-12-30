@@ -8,3 +8,5 @@ switch(page.id){
         putProducts();
         break;
 }
+
+import "./ts/cart-page/cart";
