@@ -410,5 +410,5 @@ function deletePromoCode(target: HTMLElement) {
 
 displayCartProductItems(cartProducts, productPerPage, page); //ПЕРВОЕ создание карточек
 changeTotalItemsAndMoney(cartProducts); //ПЕРВЫЙ пересчет кол-ва и суммы
-// createAppliedPromo();
-// changePromoCodeMoney();
+createAppliedPromo();
+changePromoCodeMoney();
