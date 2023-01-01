@@ -1,8 +1,9 @@
 import { dataProducts } from "../dataProducts";
 import { createSorts } from "./sortProducts";
+import { addButtonEvent } from "../addButtonEvent";
 
 type productType = typeof dataProducts.products[1];
-interface productInLocal{
+export interface productInLocal{
     id: string,
     count: string,
     price: string
@@ -100,7 +101,7 @@ function _createItemButtons(wrapper: HTMLDivElement, product: productType){
     buttonsWrapper.classList.add('items__wrapper-buttons');
     const addCart = document.createElement('button');
     addCart.classList.add('button-add');
-    if (productInCart != undefined){
+    if (productInCart !== undefined){
         total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
         addCart.textContent = 'DROP FROM CART';
         cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
@@ -123,37 +124,11 @@ function _eventButtons(item: HTMLDivElement, product: productType){
     const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
 
     addCart.addEventListener('click', () => {
-        if (addCart.textContent === 'ADD TO CART'){
-            let cartProducts = [];
-            const localStor = localStorage.getItem('cartProducts');
-            if (localStor){
-                cartProducts = JSON.parse(localStor);
-            }
-            const nwProduct = {
-                id: product.id,
-                count: 1,
-                price: product.price
-            };
-            cartProducts.push(nwProduct);
-            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        addButtonEvent(addCart, total, cartNumber, product);
+    });
 
-            total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
-            addCart.textContent = 'DROP FROM CART';
-            cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
-        }
-        else{
-            let cartProducts = [];
-            const localStor = localStorage.getItem('cartProducts');
-            if (localStor){
-                cartProducts = JSON.parse(localStor);
-            }
-            const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
-            cartProducts.splice(cartProducts.indexOf(productInCart),1);
-
-            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-            total.textContent = `Cart total: €${Number(total.textContent?.replace('Cart total: €', '')) - Number(product.price)}`;
-            addCart.textContent = 'ADD TO CART';
-            cartNumber.textContent = String(Number(cartNumber.textContent) - 1);
-        }
+    details.addEventListener('click', () => {
+        localStorage.setItem('productDetails', String(product.id));
+        window.location.href = './details.html';
     });
 }
