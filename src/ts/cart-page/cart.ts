@@ -28,6 +28,22 @@ if (localStor) {
   cartProducts = JSON.parse(localStor);
 }
 
+function showNotEmptyCart() {
+  const cartWrap = document.querySelector<HTMLElement>(".cart-wrapper");
+  const emptyCart = document.querySelector<HTMLElement>(".empty-cart");
+  if (!cartWrap || !emptyCart) return;
+  if (cartProducts.length === 0) {
+    cartWrap.style.display = "none";
+    emptyCart.style.display = "block";
+    localStorage.removeItem("cartProducts");
+    localStorage.removeItem("OSpromoCodes");
+  } else {
+    cartWrap.style.display = "flex";
+
+    emptyCart.style.display = "none";
+  }
+}
+
 const productsItems = document.querySelector(".cart-products__items"); //parent div
 const productAmountInput = document.querySelector<HTMLInputElement>(
   ".products-amount__input"
@@ -83,6 +99,7 @@ function displayCartProductItems(
   rowPerPage: number,
   page: number
 ): Element | undefined {
+  showNotEmptyCart();
   if (!arrData || !rowPerPage || !page || !productsItems) return;
   productsItems.innerHTML = "";
   page--;
@@ -231,7 +248,8 @@ interface AllPromoCodes {
   disc: string;
 }
 
-const availablePromoCodes: AllPromoCodes[] = [             /******ДОСТУПНЫЕ ПРОМОКОДЫ */
+const availablePromoCodes: AllPromoCodes[] = [
+  /******ДОСТУПНЫЕ ПРОМОКОДЫ */
   { id: "RS", name: "Rolling Scopes School", disc: "10" },
   { id: "EPM", name: "EPAM Systems", disc: "10" },
 ];
@@ -245,7 +263,6 @@ const promoCodeInput =
   document.querySelector<HTMLInputElement>(".promo-code__input");
 const appliedCodes = document.querySelector<HTMLElement>(".applied-codes");
 const foundPromo = document.querySelector<HTMLElement>(".found-promo");
-
 
 promoCodeInput?.addEventListener("input", showPromoCodes);
 foundPromo?.addEventListener("click", addPromoCode);
@@ -308,7 +325,7 @@ function applyPromoCode(target: HTMLElement) {
     usedPromoCodes = JSON.parse(localStorPromoCodes);
   }
 
-  availablePromoCodes.forEach( item => {
+  availablePromoCodes.forEach((item) => {
     if (promoCodeInput.value.toUpperCase() === item.id) {
       usedPromoCodes.push(item);
       localStorage.setItem("OSpromoCodes", JSON.stringify(usedPromoCodes));
@@ -316,41 +333,39 @@ function applyPromoCode(target: HTMLElement) {
   });
   createAppliedPromo();
   changePromoCodeMoney();
-  } 
+}
 
-  function createAppliedPromo(){
-    const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
-    if(!appliedCodes || !localStorPromoCodes) return;
-    if (localStorPromoCodes.length === 0) return;
-    appliedCodes.style.display = "block";
-    appliedCodes.innerHTML = '';
-    const title = document.createElement("h3");
-    title.innerHTML = 'Applied codes';
-    appliedCodes.appendChild(title);
+function createAppliedPromo() {
+  const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
+  if (!appliedCodes || !localStorPromoCodes) return;
+  if (localStorPromoCodes.length === 0) return;
+  appliedCodes.style.display = "block";
+  appliedCodes.innerHTML = "";
+  const title = document.createElement("h3");
+  title.innerHTML = "Applied codes";
+  appliedCodes.appendChild(title);
 
-  
   let usedPromoCodes: AllPromoCodes[] = [];
   if (localStorPromoCodes) {
     usedPromoCodes = JSON.parse(localStorPromoCodes);
-  
-    usedPromoCodes.forEach( item => {
-    const appliedPromo = document.createElement("div");
-    appliedPromo.classList.add("applied-promo");
-    appliedPromo.setAttribute("id", `${item.id}`);
-    appliedPromo.innerHTML =
-      `${item.name} - ${item.disc}% - <span class="applied-codes__span promo__btn_drop">DROP</span>`;
-    appliedCodes.appendChild(appliedPromo);
+
+    usedPromoCodes.forEach((item) => {
+      const appliedPromo = document.createElement("div");
+      appliedPromo.classList.add("applied-promo");
+      appliedPromo.setAttribute("id", `${item.id}`);
+      appliedPromo.innerHTML = `${item.name} - ${item.disc}% - <span class="applied-codes__span promo__btn_drop">DROP</span>`;
+      appliedCodes.appendChild(appliedPromo);
     });
   }
-  }
+}
 
 function changePromoCodeMoney() {
-  if(!startPrice || !resultPrice || !resultPriceMoney || !headerMoney) return;
+  if (!startPrice || !resultPrice || !resultPriceMoney || !headerMoney) return;
 
   const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
-  if(!localStorPromoCodes) return;
-  const usedPromoCodes:AllPromoCodes[] = JSON.parse(localStorPromoCodes);
- 
+  if (!localStorPromoCodes) return;
+  const usedPromoCodes: AllPromoCodes[] = JSON.parse(localStorPromoCodes);
+
   startPrice.classList.add("old-price");
   resultPrice.style.display = "block";
 
@@ -360,40 +375,40 @@ function changePromoCodeMoney() {
   });
 
   resultPriceMoney.innerHTML = `€${itemSum * (1 - itemDiskSum / 100)}.00`;
-  headerMoney.innerHTML = `Cart total: €${itemSum * (1 - itemDiskSum / 100)}.00`;
+  headerMoney.innerHTML = `Cart total: €${
+    itemSum * (1 - itemDiskSum / 100)
+  }.00`;
 }
 
-
 function deletePromoCode(target: HTMLElement) {
+  const parent = target.closest(".applied-promo");
+  const parentId = parent?.getAttribute("id");
+  const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
+  if (!localStorPromoCodes || !appliedCodes || !startPrice || !resultPrice)
+    return;
+  const usedPromoCodes: AllPromoCodes[] = JSON.parse(localStorPromoCodes);
 
- const parent = target.closest('.applied-promo');
- const parentId = parent?.getAttribute("id");
- const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
- if(!localStorPromoCodes ||  !appliedCodes || !startPrice || !resultPrice) return;
- const usedPromoCodes:AllPromoCodes[] = JSON.parse(localStorPromoCodes);
-
- usedPromoCodes.forEach( (item, i) => {
-  if (item.id === parentId) {
-     usedPromoCodes.splice(i, 1);
-     if (usedPromoCodes.length === 0) {
-      localStorage.removeItem("OSpromoCodes");
-      appliedCodes.style.display = "none";
-      appliedCodes.innerHTML = '';
-      startPrice.classList.remove("old-price");
-      resultPrice.style.display = "none";
-      changeTotalItemsAndMoney(cartProducts);
-     } else {
-      localStorage.setItem("OSpromoCodes", JSON.stringify(usedPromoCodes));
-       changePromoCodeMoney();
-     }
-     
-  }
- });
- parent?.remove();
- showPromoCodes();
+  usedPromoCodes.forEach((item, i) => {
+    if (item.id === parentId) {
+      usedPromoCodes.splice(i, 1);
+      if (usedPromoCodes.length === 0) {
+        localStorage.removeItem("OSpromoCodes");
+        appliedCodes.style.display = "none";
+        appliedCodes.innerHTML = "";
+        startPrice.classList.remove("old-price");
+        resultPrice.style.display = "none";
+        changeTotalItemsAndMoney(cartProducts);
+      } else {
+        localStorage.setItem("OSpromoCodes", JSON.stringify(usedPromoCodes));
+        changePromoCodeMoney();
+      }
+    }
+  });
+  parent?.remove();
+  showPromoCodes();
 }
 
 displayCartProductItems(cartProducts, productPerPage, page); //ПЕРВОЕ создание карточек
 changeTotalItemsAndMoney(cartProducts); //ПЕРВЫЙ пересчет кол-ва и суммы
-createAppliedPromo();
-changePromoCodeMoney();
+// createAppliedPromo();
+// changePromoCodeMoney();
