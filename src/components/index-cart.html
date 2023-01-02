@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header header-main">
+        <div class="header__brand">
+            <div class="logo">🛍</div>
+            <h2 class="brand-name">Online Store</h2>
+        </div>
+        <div class="header__total-price">
+            <span class="total-price__price">Cart total: €0.00</span>
+        </div>
+        <div class="header__cart">
+            <div class="header__cart__number">
+                <div class="header__cart__number__content">0</div>
+            </div>
+    </header>
+    <main class="main-main">
+        <div class="cart-page">
+            <h1 class="empty-cart">Cart is empty</h1>
+            <div class="cart-wrapper">
+                <div class="cart-products">
+                    <div class="cart-products__header">
+                        <h2>
+                            Products In Cart
+                        </h2>
+                        <div class="page-control">
+                            <div class="products-amount">
+                                <label for="amoutInput"><span class="products-amount__text">LIMIT:</span></label>
+                                <input type="number" id="amoutInput" class="products-amount__input" min="1" value="3">
+                            </div>
+                            <div class="page-numbers">
+                                <span class="page-numbers__text">PAGE:</span>
+                                <button class="page-btn-back">
+                                    < </button>
+                                        <span class="page-number">1</span>
+                                        <button class="page-btn-forward"> > </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-products__items">
+                    </div>
+
+                </div>
+                <div class="total-cart">
+                    <h2>Summary</h2>
+                    <div class="total-price">
+                        <span class="total-price__text">Products:</span>
+                        <span class="total-items">0</span>
+                    </div>
+                    <div id="startPrice" class="total-price">
+                        <span class="total-price__text">Total:</span>
+                        <span class="total-money">€0</span>
+                    </div>
+                    <div id="resultPrice" class="total-price result-price">
+                        <span class="total-price__text">Total:</span>
+                        <span class="total-money result-price__money">€0</span>
+                    </div>
+                    <div class="applied-codes"></div>
+                    <div class="promo-code">
+                        <input type="search" class="promo-code__input" placeholder="Enter promo code">
+                    </div>
+                    <div class="found-promo">
+                    </div>
+                    <span class="promo-ex">
+                        Promo for test: 'RS', 'EPM'
+                    </span>
+                    <button class="btn__buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer main-footer">
+        <a href="https://github.com/PetrAlexkulakov">Author 1</a>
+        <a href="https://rs.school/js/" class="course-logo"></a>
+        <p>Online Store</p>
+        <p>2022</p>
+        <a href="https://github.com/Elena-Amelia">Author 2</a>
+    </footer>
+</body>
+
+</html>
