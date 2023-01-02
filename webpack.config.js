@@ -73,6 +73,10 @@ const baseConfig = {
           template: path.resolve(__dirname, './src/components/index-cart.html'),
           filename: 'index-cart.html',
       }),
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, './src/components/details.html'),
+          filename: 'details.html',
+      }),
         new CleanWebpackPlugin(),
         new EslingPlugin({ extensions: 'ts' }),
         new MiniCssExtractPlugin()

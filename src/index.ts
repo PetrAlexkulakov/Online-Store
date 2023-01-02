@@ -6,6 +6,8 @@ import { createSearch } from "./ts/main-page/mainSearch";
 import { createFilterButtons } from "./ts/main-page/mainFilterButtons";
 import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
 
+import { createDetails } from "./ts/details-page/createDetailsPage";
+
 const page = document.body;
 
 switch(page.id) {
@@ -16,6 +18,9 @@ switch(page.id) {
         createSearch();
         createFilterButtons();
         createFiltersSlide();
+    break;
+    case 'details':
+        createDetails();
     break;
 }
 
