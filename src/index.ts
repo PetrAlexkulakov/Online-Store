@@ -19,4 +19,4 @@ switch(page.id){
     break;
 }
 
-import "./ts/cart-page/cart";
+import "./ts/cart-page/cart.ts";
