@@ -7,18 +7,18 @@ import {
   changeTotalItemsAndMoney,
   changePromoCodeMoney,
 } from "./changeMoney";
-import { getCartProducts } from "./cartConst";
-
-const cartProducts = getCartProducts();
+import { CartLocalStor } from "./cartTypes";
 
 const promoCodeInput =
   document.querySelector<HTMLInputElement>(".promo-code__input");
 const appliedCodes = document.querySelector<HTMLElement>(".applied-codes");
 const foundPromo = document.querySelector<HTMLElement>(".found-promo");
 
-promoCodeInput?.addEventListener("input", showPromoCodes);
-foundPromo?.addEventListener("click", addPromoCode);
-appliedCodes?.addEventListener("click", removePromoCode);
+let cartProducts: CartLocalStor[] = [];
+const localStor = localStorage.getItem("cartProducts");
+if (localStor) {
+  cartProducts = JSON.parse(localStor);
+}
 
 function showPromoCodes() {
   if (!promoCodeInput || !foundPromo) return;
@@ -138,3 +138,7 @@ function deletePromoCode(target: HTMLElement) {
   parent?.remove();
   showPromoCodes();
 }
+
+promoCodeInput?.addEventListener("input", showPromoCodes);
+foundPromo?.addEventListener("click", addPromoCode);
+appliedCodes?.addEventListener("click", removePromoCode);

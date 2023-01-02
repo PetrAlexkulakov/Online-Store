@@ -1,13 +1,15 @@
-import { getCartProducts } from "./cartConst";
+import { CartLocalStor } from "./cartTypes";
 import { displayCartProductItems } from "./displayCart";
-import { productsItems, productAmountInput } from "./cartConst";
-import { changeProductAmount, changePage, page, productPerPage, pageForwardBtn, pageBackBtn } from "./changeAmount&Page";
+import { page, productPerPage } from "./changeAmount&Page";
 import { changeTotalItemsAndMoney,  changePromoCodeMoney } from "./changeMoney";
 import { createAppliedPromo } from "./usePromoCode";
-import { clickHandler } from "./add&removeProducts";
 
-const cartProducts = getCartProducts();
 
+let cartProducts: CartLocalStor[] = [];
+const localStor = localStorage.getItem("cartProducts");
+if (localStor) {
+  cartProducts = JSON.parse(localStor);
+}
 
 localStorage.setItem(
   "cartProducts",
@@ -24,14 +26,6 @@ localStorage.setItem(
     { id: 10, count: 1, price: 1000 },
   ])
 );
-
-
-
-productAmountInput?.addEventListener("input", changeProductAmount);
-productsItems?.addEventListener("click", clickHandler);
-pageForwardBtn?.addEventListener("click", changePage);
-pageBackBtn?.addEventListener("click", changePage);
-
 
 displayCartProductItems(cartProducts, productPerPage, page);
 changeTotalItemsAndMoney(cartProducts);

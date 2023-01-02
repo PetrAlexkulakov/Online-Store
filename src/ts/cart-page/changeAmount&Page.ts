@@ -1,7 +1,14 @@
-import { getCartProducts, productAmountInput } from "./cartConst";
+import { productAmountInput, productsItems } from "./cartConst";
 import { displayCartProductItems } from "./displayCart";
+import { dataProducts } from "../dataProducts";
+import { changeTotalItemsAndMoney, changePromoCodeMoney } from "./changeMoney";
+import { CartLocalStor } from "./cartTypes";
 
-const cartProducts = getCartProducts();
+let cartProducts: CartLocalStor[] = [];
+const localStor = localStorage.getItem("cartProducts");
+if (localStor) {
+  cartProducts = JSON.parse(localStor);
+}
 
 export const pageNumber = document.querySelector<HTMLElement>(".page-number");
 export const pageForwardBtn =
@@ -43,3 +50,65 @@ export function changePage(e: Event) {
 
   displayCartProductItems(cartProducts, productPerPage, page);
 }
+export function clickHandler(e: Event) {
+  if ((e.target as HTMLElement).classList.contains("btn__add")) {
+    addProducts(e.target as HTMLElement);
+  } else if ((e.target as HTMLElement).classList.contains("btn__remove")) {
+    removeProducts(e.target as HTMLElement);
+  }
+}
+
+function addProducts(target: HTMLElement) {
+  const clickedItem = target.closest(".cart-products__item_wrapper");
+  const clickedItemSpan = clickedItem?.querySelector<HTMLElement>(
+    ".item__number-control_count"
+  );
+  if (clickedItem && clickedItemSpan) {
+    cartProducts.forEach((item) => {
+      if (item.id === +clickedItem.id) {
+        const stock = dataProducts.products[item.id - 1].stock;
+        if (item.count === stock) {
+          return;
+        } else {
+          item.count++;
+        }
+        clickedItemSpan.innerHTML = `${item.count}`;
+        localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+      }
+
+      changeTotalItemsAndMoney(cartProducts);
+      changePromoCodeMoney();
+    });
+  }
+}
+
+function removeProducts(target: HTMLElement) {
+  const clickedItem = target.closest(".cart-products__item_wrapper");
+  const clickedItemSpan = clickedItem?.querySelector<HTMLElement>(
+    ".item__number-control_count"
+  );
+
+  if (clickedItem && clickedItemSpan) {
+    cartProducts.forEach((item, i) => {
+      if (item.id === +clickedItem.id) {
+        if (item.count === 1) {
+          cartProducts.splice(i, 1);
+          clickedItem.remove();
+        } else {
+          item.count = item.count - 1;
+        }
+        clickedItemSpan.innerHTML = `${item.count}`;
+        localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+        changeProductAmount();
+      }
+
+      displayCartProductItems(cartProducts, productPerPage, page);
+      changeTotalItemsAndMoney(cartProducts);
+      changePromoCodeMoney();
+    });
+  }
+}
+productsItems?.addEventListener("click", clickHandler);
+productAmountInput?.addEventListener("input", changeProductAmount);
+pageForwardBtn?.addEventListener("click", changePage);
+pageBackBtn?.addEventListener("click", changePage);

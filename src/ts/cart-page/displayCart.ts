@@ -1,7 +1,6 @@
 import { dataProducts } from "../dataProducts";
 import { CartLocalStor } from "./cartTypes";
 import { productsItems } from "./cartConst";
-import { getCartProducts } from "./cartConst";
 
 export function displayCartProductItems(
   arrData: CartLocalStor[],
@@ -72,8 +71,12 @@ function _showNotEmptyCart() {
   const cartWrap = document.querySelector<HTMLElement>(".cart-wrapper");
   const emptyCart = document.querySelector<HTMLElement>(".empty-cart");
   if (!cartWrap || !emptyCart) return;
-  const cartProducts = getCartProducts();
-  if (cartProducts?.length === 0) {
+  let cartProducts: CartLocalStor[] = [];
+  const localStor = localStorage.getItem("cartProducts");
+  if (localStor) {
+    cartProducts = JSON.parse(localStor);
+  }
+  if (cartProducts.length === 0) {
     cartWrap.style.display = "none";
     emptyCart.style.display = "block";
     localStorage.removeItem("cartProducts");
