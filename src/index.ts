@@ -8,7 +8,7 @@ import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
 
 const page = document.body;
 
-switch(page.id){
+switch(page.id) {
     case 'index':
         putProducts();
         createFilters();

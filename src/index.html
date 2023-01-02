@@ -37,30 +37,54 @@
             </div>
             <div class="filters__price">
                 <h3 class='filters__h3'>Price</h3>
-                <div class="data price__data"> €280.00 </div>
-                <div class="range price__range"></div>
+                <div class="data price__data">
+                    <div class="prive__from-data">€10</div>
+                     ⟷ 
+                    <div class="prive__to-data">€1749</div>
+                </div>
+                <div class="range price__range">
+                    <input type="range" min="1" max="48" value="0" class="price__range-input price__range-input1">
+                    <input type="range" min="1" max="48" value="48" class="price__range-input price__range-input2">
+                </div>
             </div>
             <div class="filters__stock">
                 <h3 class="filters__h3">Stock</h3>
-                <div class="data stock__data"> 123 </div>
-                <div class="range stock__range"></div>
+                <div class="data stock__data">
+                    <div class="stock__from-data">1</div>
+                     ⟷ 
+                    <div class="stock__to-data">150</div>
+                </div>
+                <div class="range stock__range">
+                    <input type="range" min="1" max="48" value="0" class="price__range-input stock__range-input1">
+                    <input type="range" min="1" max="48" value="48" class="price__range-input stock__range-input2">
+                </div>
             </div>
         </div>
         <div class="main__products">
             <div class="products__sort-products">
                 <div class="sort-bar">
-                    <select name="" id="" class="sort-bar__select"></select>
+                    <select class="sort-bar__select">
+                        <option value="title">Sort options:</option>
+                        <option value="price-ASC">Sort by price ASC</option>
+                        <option value="price-DESC">Sort by price DESC</option>
+                        <option value="rating-ASC">Sort by rating ASC</option>
+                        <option value="rating-DESC">Sort by rating DESC</option>
+                        <option value="discount-ASC">Sort by discount ASC</option>
+                        <option value="discount-DESC">Sort by discount DESC</option>
+                    </select>
                 </div>
                 <div class="founds">Found: 1</div>
                 <div class="search-bar">
-                    <input type="text" class="search-bar__input">
+                    <input type="text" class="search-bar__input" placeholder="Search product">
                 </div>
                 <div class="view-mode">
-                    <div class="view-mode small-mode"></div>
-                    <div class="view-mode big-mode"></div>
+                    <div class="small-mode"></div>
+                    <div class="big-mode"></div>
                 </div>
             </div>
-            <div class="products__items-products"></div>
+            <div class="products__items-products">
+                <span class="no-products">No products found 😏</span>
+            </div>
         </div>
     </main>
     <footer class="footer main-footer">

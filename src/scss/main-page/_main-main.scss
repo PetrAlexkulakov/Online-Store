@@ -108,6 +108,10 @@ img{
     color: $color-decoration;
     border: 1px solid orange;
     text-align: center;
+    
+    option{
+        background-color: $color-background-elements;
+    }
 }
 .founds{
     color: $color-text;
@@ -127,19 +131,20 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.view-mode{
-    border: 1px solid orange;
-    height: 2rem;
-    width: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 0.3rem;
-    justify-content: center;
-    align-items: center;
-    padding: 2%;
-    cursor: pointer;
-    margin-left: 0.5rem;
+
+    .small-mode, .big-mode{
+        border: 1px solid orange;
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 0.3rem;
+        justify-content: center;
+        align-items: center;
+        padding: 2%;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
 }
 .active-mode{
     box-shadow: 0 0 3px 1px orange;
@@ -151,6 +156,51 @@ img{
     padding: .5%;
 }
 .product-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 23%;
     padding-top: 20%;
+    margin: 1%;
+    border: 1px solid orange;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.small-item{
+    width: 14.6%;
+    padding-top: 12%;
+}
+.item-text{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+.item-title{
+    background: $color-background-elements;
+    padding: 1%;
+    text-align: center;
+    border-bottom: 1px solid orange;
+    white-space: nowrap;
+}
+.info__item-info{
+    width: 55%;
+    background-color: #4d2f14f2;
+    border-radius: 0 0 0.4rem;
+    border-bottom: 1px solid orange;
+    border-right: 1px solid orange;
+    padding: 1%;
+    
+    p{
+        font-size: .6rem;
+        color: $color-text;
+    }
+}
+.items__wrapper-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+.no-products{
+    display: none;
+    font-size: 3rem;
 }
