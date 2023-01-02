@@ -4,6 +4,7 @@
 @import './main-page/_header-main';
 @import './main-page/_main-main';
 @import './main-page/_footer-main.scss';
+@import './main-page/_main-sorts';
 
 
 @import './cart-page/_main-cart.scss';
@@ -25,9 +26,8 @@ button{
     background-color: #181a1c;
     border: 1px solid orange;
     border-radius: 0.3rem;
-    padding-left: 2%;
-    padding-right: 2%;
-    font-size: 120%;
+    padding: 1% 2%;
+    font-size: 80%;
     cursor: pointer;
 }
 input{
@@ -39,4 +39,7 @@ label, span{
 h3{
     text-align: center;
     background-color: $color-background-elements;
+}
+.hide{
+    display: none;
 }

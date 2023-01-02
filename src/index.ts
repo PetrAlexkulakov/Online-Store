@@ -17,6 +17,7 @@ switch(page.id){
         createFilterButtons();
         createFiltersSlide();
     break;
-}
+
 
 import "./ts/cart-page/cart";
+

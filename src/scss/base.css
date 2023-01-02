@@ -213,6 +213,9 @@ img {
   border: 1px solid orange;
   text-align: center;
 }
+.sort-bar__select option {
+  background-color: #181a1c;
+}
 
 .founds {
   color: wheat;
@@ -235,8 +238,7 @@ img {
   align-items: center;
   justify-content: space-between;
 }
-
-.view-mode {
+.view-mode .small-mode, .view-mode .big-mode {
   border: 1px solid orange;
   height: 2rem;
   width: 2rem;
@@ -262,8 +264,58 @@ img {
 }
 
 .product-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 23%;
   padding-top: 20%;
+  margin: 1%;
+  border: 1px solid orange;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.small-item {
+  width: 14.6%;
+  padding-top: 12%;
+}
+
+.item-text {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+}
+
+.item-title {
+  background: #181a1c;
+  padding: 1%;
+  text-align: center;
+  border-bottom: 1px solid orange;
+  white-space: nowrap;
+}
+
+.info__item-info {
+  width: 55%;
+  background-color: rgba(77, 47, 20, 0.9490196078);
+  border-radius: 0 0 0.4rem;
+  border-bottom: 1px solid orange;
+  border-right: 1px solid orange;
+  padding: 1%;
+}
+.info__item-info p {
+  font-size: 0.6rem;
+  color: wheat;
+}
+
+.items__wrapper-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.no-products {
+  display: none;
+  font-size: 3rem;
 }
 
 footer {
@@ -621,6 +673,81 @@ footer {
   padding: 0.5%;
   cursor: pointer;
   font-size: 90%;
+  }
+  
+.small-point {
+  white-space: nowrap;
+  width: 12%;
+  height: 12%;
+  margin: 2%;
+  font-size: 50%;
+  border-radius: 100%;
+  overflow: hidden;
+  background: orange;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.big-point {
+  white-space: nowrap;
+  width: 20%;
+  height: 20%;
+  margin: 2%;
+  font-size: 50%;
+  border-radius: 100%;
+  overflow: hidden;
+  background: orange;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.active-view {
+  box-shadow: 0 0 3px 1px #c45f07;
+}
+
+.price__range-input {
+  width: 96%;
+  margin: 2%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: linear-gradient(orange, orange) no-repeat center;
+  overflow: hidden;
+  background-size: 100% 2px;
+  pointer-events: none;
+}
+
+.price__range-input::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: orange;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #181a1c;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.price__range-input::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.price__range-input1, .stock__range-input1 {
+  position: absolute;
+  z-index: 1;
+}
+
+.price__range-input2, .stock__range-input2 {
+  background: none;
+  position: absolute;
 }
 
 * {
@@ -642,9 +769,8 @@ button {
   background-color: #181a1c;
   border: 1px solid orange;
   border-radius: 0.3rem;
-  padding-left: 2%;
-  padding-right: 2%;
-  font-size: 120%;
+  padding: 1% 2%;
+  font-size: 80%;
   cursor: pointer;
 }
 
@@ -660,4 +786,8 @@ label, span {
 h3 {
   text-align: center;
   background-color: #181a1c;
+}
+
+.hide {
+  display: none;
 }/*# sourceMappingURL=base.css.map */
