@@ -116,7 +116,7 @@ function _createButtonsBlock(product: ourProduct){
         }
         const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
 
-        if (productInCart === null)
+        if (productInCart == undefined)
         add.textContent = 'ADD TO CART';
         else add.textContent = 'DROP FROM CART';
         buy.textContent = 'BUY NOW';
