@@ -21,8 +21,8 @@ export function changeTotalItemsAndMoney(arrData: CartLocalStor[]) {
 
   totalItems.innerHTML = `${itemCounts}`;
   headerItems.innerHTML = `${itemCounts}`;
-  totalMoney.innerHTML = `€${itemSum}.00`;
-  headerMoney.innerHTML = `Cart total: €${itemSum}.00`;
+  totalMoney.innerHTML = `€${itemSum.toFixed(2)}`;
+  headerMoney.innerHTML = `Cart total: €${itemSum.toFixed(2)}`;
 }
 
 export function changePromoCodeMoney() {
@@ -35,13 +35,12 @@ export function changePromoCodeMoney() {
   startPrice.classList.add("old-price");
   resultPrice.style.display = "block";
 
-  let itemDiskSum = 0;
+  let itemDiscSum = 0;
   usedPromoCodes.forEach((item) => {
-    itemDiskSum = itemDiskSum + +item.disc;
+    itemDiscSum = itemDiscSum + +item.disc;
   });
 
-  resultPriceMoney.innerHTML = `€${itemSum * (1 - itemDiskSum / 100)}.00`;
-  headerMoney.innerHTML = `Cart total: €${
-    itemSum * (1 - itemDiskSum / 100)
-  }.00`;
+  const resultSum = (itemSum * (1 - itemDiscSum / 100)).toFixed(2);
+  resultPriceMoney.innerHTML = `€${resultSum}`;
+  headerMoney.innerHTML = `Cart total: €${resultSum}`;
 }
