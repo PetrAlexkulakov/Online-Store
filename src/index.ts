@@ -5,8 +5,12 @@ import { filtraite } from "./ts/main-page/mainFilters";
 import { createSearch } from "./ts/main-page/mainSearch";
 import { createFilterButtons } from "./ts/main-page/mainFilterButtons";
 import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
+import { cartClick } from "./ts/cartClick";
 
 import { createDetails } from "./ts/details-page/createDetailsPage";
+
+import { startCart } from "./ts/cart-page/cart";
+
 
 const page = document.body;
 
@@ -22,6 +26,11 @@ switch(page.id) {
     case 'details':
         createDetails();
     break;
+    case 'cart':
+        startCart();
+    break;
 }
+cartClick();
 
-import "./ts/cart-page/cart.ts";
+
+
