@@ -6,10 +6,11 @@ import { createSearch } from "./ts/main-page/mainSearch";
 import { createFilterButtons } from "./ts/main-page/mainFilterButtons";
 import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
 import { cartClick } from "./ts/cartClick";
-
+import { purchaseWindowClick } from "./ts/purchaseWindowClick";
 import { createDetails } from "./ts/details-page/createDetailsPage";
 
 import { startCart } from "./ts/cart-page/cart";
+import { showModalWindow } from "./ts/purchase-window/startPurchaseWindow";
 
 
 const page = document.body;
@@ -29,8 +30,12 @@ switch(page.id) {
     case 'cart':
         startCart();
     break;
+    case 'cartModalWindow':
+        showModalWindow();
+    break;
 }
-cartClick();
 
+cartClick();
+purchaseWindowClick();
 
 
