@@ -48,7 +48,7 @@ export function confirmBtnClick() {
     if (invalidInputs.length === 0) {
       if (!modalWindow || !modalWindowWrap) return;
       localStorage.removeItem("cartProducts");
-      localStorage.removeItem("OSpromoCodes");
+      // localStorage.removeItem("OSpromoCodes");
       showNotEmptyCart();
       modalWindow.style.display = "none";
       const thankDiv = document.createElement("div");
