@@ -58,7 +58,6 @@ export function formatCardNumber(this: HTMLInputElement) {
   this.value = resultCardNum;
 
   const typeOfPaymentSys = this.value.slice(0, 1);
-  console.log(typeOfPaymentSys);
 
   switch (typeOfPaymentSys) {
     case "3":

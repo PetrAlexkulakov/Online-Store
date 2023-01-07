@@ -5,7 +5,7 @@ const validPhoneNumber = /[\\+][0-9]{9,}/;
 const validAddress = /^[\S]{5,}\s[\S]{5,}\s[\S]{5,}.*$/;
 const validEmail = /^[\S]+@[\w-]+\.[A-Za-z]{2,4}$/;
 
-export function checkPersonDateInput(this: HTMLInputElement, e: Event) {
+export function checkPersonDataInput(this: HTMLInputElement, e: Event) {
     if (!personNameIn || !phoneNumberIn || !addressIn || !emailIn) return;
     let validValue = /0/;
     switch(this) {

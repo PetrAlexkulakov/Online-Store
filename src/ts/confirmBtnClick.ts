@@ -55,7 +55,7 @@ export function confirmBtnClick() {
       thankDiv.classList.add(".thankDiv");
       const thankDivSpan = document.createElement("span");
       thankDivSpan.classList.add(".thankDivSpan");
-      thankDiv.innerHTML = `Thank for your order. Redirect to the store in <span class="thankDivSpan">5</span> sec`;
+      thankDiv.innerHTML = `Thank you for your order. Redirect to the store in <span class="thankDivSpan">5</span> sec`;
       modalWindowWrap.appendChild(thankDiv);
 
       const startTime = new Date().getSeconds();

@@ -4,7 +4,7 @@ import {
   formatCardCvv,
   checkCardInput,
 } from "./cardValidation";
-import { checkPersonDateInput } from "./personDataValidation";
+import { checkPersonDataInput } from "./personDataValidation";
 
 
 export const cardNumberInput = document.querySelector<HTMLInputElement>(
@@ -31,10 +31,10 @@ cvvInput?.addEventListener("input", formatCardCvv);
 cardNumberInput?.addEventListener("change", checkCardInput);
 cardDateInput?.addEventListener("change", checkCardInput);
 cvvInput?.addEventListener("change", checkCardInput);
-personNameIn?.addEventListener('input', checkPersonDateInput);
-phoneNumberIn?.addEventListener('input', checkPersonDateInput);
-addressIn?.addEventListener('input', checkPersonDateInput);
-emailIn?.addEventListener('input', checkPersonDateInput);
+personNameIn?.addEventListener('input', checkPersonDataInput);
+phoneNumberIn?.addEventListener('input', checkPersonDataInput);
+addressIn?.addEventListener('input', checkPersonDataInput);
+emailIn?.addEventListener('input', checkPersonDataInput);
 
 
 export function showModalWindow() {
