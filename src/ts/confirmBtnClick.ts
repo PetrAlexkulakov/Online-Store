@@ -67,7 +67,7 @@ export function confirmBtnClick() {
 
       setTimeout(() => {
         (window.location.href = "index.html"), thankDiv.remove();
-      }, 5000);
+      }, 6000);
     }
   });
 }

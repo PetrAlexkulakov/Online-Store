@@ -24,8 +24,7 @@ export function checkCardInput(this: HTMLInputElement, e: Event) {
   }
   if (e.target === cardDateInput) {
     const month = +this.value.slice(0, 2);
-    if (!month) return;
-    if (this.value.length < 5 || this.value.length === 0 || month > 12) {
+    if (this.value.length < 5 || this.value.length === 0 || month > 12 || month < 1) {
       if (cardDateInput?.classList.contains("invalid")) return;
       errorDiv.classList.add("card-err-date");
       errorDiv.innerText = "Card valid thru - error";
@@ -59,6 +58,7 @@ export function formatCardNumber(this: HTMLInputElement) {
   this.value = resultCardNum;
 
   const typeOfPaymentSys = this.value.slice(0, 1);
+  console.log(typeOfPaymentSys);
 
   switch (typeOfPaymentSys) {
     case "3":
@@ -97,7 +97,7 @@ export function formatCardDate(this: HTMLInputElement) {
 
   const month = +this.value.slice(0, 2);
   if (!month) return;
-  if (this.value.length < 5 && month > 12) {
+  if (this.value.length === 5 && month < 13 && month > 0) {
     const errorDiv = document.querySelector(".card-err-date");
     errorDiv?.remove();
     cardDateInput?.classList.remove("invalid");
