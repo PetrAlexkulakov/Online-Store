@@ -18,10 +18,10 @@ export const phoneNumberIn = document.querySelector<HTMLInputElement>('.phone-nu
 export const addressIn = document.querySelector<HTMLInputElement>('.address__input');
 export const emailIn = document.querySelector<HTMLInputElement>('.email__input');
 
-const modalWindowWrap = document.querySelector<HTMLElement>(
+export const modalWindowWrap = document.querySelector<HTMLElement>(
   ".modal-window-wrapper"
 );
-const modalWindow = document.querySelector<HTMLElement>(".modal-window");
+export const modalWindow = document.querySelector<HTMLElement>(".modal-window");
 
 
 modalWindowWrap?.addEventListener("click", hideModalWindow);

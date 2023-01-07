@@ -984,6 +984,10 @@ footer {
   cursor: text;
 }
 
+.card-data__input.invalid {
+  color: red;
+}
+
 .card-data__img {
   background-color: #fff;
   width: 10%;
@@ -1041,6 +1045,18 @@ footer {
 
 .error-mes {
   color: red;
+}
+
+.thankDiv {
+  display: block;
+  padding: 1%;
+  border: 1px solid orange;
+  border-radius: 0.5rem;
+  color: orange;
+  width: 40%;
+  background-color: #181a1c;
+  z-index: 20;
+  position: absolute;
 }
 
 * {

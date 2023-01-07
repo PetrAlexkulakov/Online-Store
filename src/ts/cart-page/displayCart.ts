@@ -7,7 +7,7 @@ export function displayCartProductItems(
   rowPerPage: number,
   page: number
 ): Element | undefined {
-  _showNotEmptyCart();
+  showNotEmptyCart();
   if (!arrData || !rowPerPage || !page || !productsItems) return;
   productsItems.innerHTML = "";
   page--;
@@ -67,7 +67,7 @@ export function displayCartProductItems(
   });
 }
 
-function _showNotEmptyCart() {
+export function showNotEmptyCart() {
   const cartWrap = document.querySelector<HTMLElement>(".cart-wrapper");
   const emptyCart = document.querySelector<HTMLElement>(".empty-cart");
   if (!cartWrap || !emptyCart) return;

@@ -1,11 +1,9 @@
 import { personNameIn, phoneNumberIn, addressIn, emailIn } from "./startPurchaseWindow";
 
 const validName = /^[^a-zа-яё]{1,}[\S]{2,}\s[^a-zа-яё]{1,}[\S]{2,}.*$/;
-const validPhoneNumber = /[\\+][0-9]+/;
+const validPhoneNumber = /[\\+][0-9]{9,}/;
 const validAddress = /^[\S]{5,}\s[\S]{5,}\s[\S]{5,}.*$/;
 const validEmail = /^[\S]+@[\w-]+\.[A-Za-z]{2,4}$/;
-
-
 
 export function checkPersonDateInput(this: HTMLInputElement, e: Event) {
     if (!personNameIn || !phoneNumberIn || !addressIn || !emailIn) return;
@@ -29,7 +27,7 @@ export function checkPersonDateInput(this: HTMLInputElement, e: Event) {
                 }
             }
 
-    if (!validValue.test(this.value)) {
+    if (!validValue.test(this.value) || this.value.length === 0) {
     if (this?.classList.contains('invalid')) return;
     this.classList.add('invalid');
     const errorDiv = document.createElement("div");
@@ -37,7 +35,6 @@ export function checkPersonDateInput(this: HTMLInputElement, e: Event) {
     errorDiv.innerText = "error";
     this.closest('.form-item')?.appendChild(errorDiv);
     } else {
-        console.log(666);
         this.classList.remove('invalid');
         const target = e.target as HTMLElement;
         const err = target.nextElementSibling;

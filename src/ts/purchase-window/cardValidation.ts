@@ -10,7 +10,7 @@ const cardDataImg = document.querySelector<HTMLImageElement>(".card-data__img");
 export function checkCardInput(this: HTMLInputElement, e: Event) {
   const errorDiv = document.createElement("div");
   if (e.target === cardNumberInput) {
-    if (this.value.length < 19) {
+    if (this.value.length < 19 || this.value.length === 0) {
       if (cardNumberInput?.classList.contains("invalid")) return;
       errorDiv.classList.add("card-err-num");
       errorDiv.innerText = "Card number - error";
@@ -25,7 +25,7 @@ export function checkCardInput(this: HTMLInputElement, e: Event) {
   if (e.target === cardDateInput) {
     const month = +this.value.slice(0, 2);
     if (!month) return;
-    if (this.value.length < 5 || month > 12) {
+    if (this.value.length < 5 || this.value.length === 0 || month > 12) {
       if (cardDateInput?.classList.contains("invalid")) return;
       errorDiv.classList.add("card-err-date");
       errorDiv.innerText = "Card valid thru - error";
@@ -38,7 +38,7 @@ export function checkCardInput(this: HTMLInputElement, e: Event) {
     }
   }
   if (e.target === cvvInput) {
-    if (this.value.length < 3) {
+    if (this.value.length < 3 || this.value.length === 0) {
       if (cvvInput?.classList.contains("invalid")) return;
       errorDiv.classList.add("card-err-cvv");
       errorDiv.innerText = "Card CVV - error";
