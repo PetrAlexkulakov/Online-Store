@@ -17,7 +17,7 @@
   border-radius: 0.5rem;
   width: 40%;
   background-color: #181a1c;
-  z-index: 10;
+  z-index: 15;
   position: absolute;
 }
 
@@ -31,6 +31,12 @@
 .person-details {
   width: 90%;
   margin: auto;
+}
+.person-details div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .person-details__title {
   text-align: center;
@@ -56,8 +62,11 @@
   font-size: 90%;
   text-align: center;
   margin: 2% auto;
+  cursor: text;
 }
-
+.form-item__input.invalid {
+  color: red;
+}
 .card-details {
   margin: 1%;
   width: 100%;
@@ -99,6 +108,7 @@
   font-size: 90%;
   color: #000;
   font-weight: 700;
+  cursor: text;
 }
 .card-data__img {
   background-color: #fff;
@@ -143,4 +153,20 @@
   cursor: pointer;
   display: block;
   margin: 5% auto;
+}
+
+// .form-item__input:invalid,
+// .card-data__input:invalid {
+//   color: red;
+// }
+
+.card-err-num,
+.card-err-date,
+.card-err-cvv {
+  color: red;
+  text-align: center;
+  padding-top: 1%;
+}
+.error-mes {
+  color: red;
 }

@@ -11,7 +11,7 @@ import { createDetails } from "./ts/details-page/createDetailsPage";
 
 import { startCart } from "./ts/cart-page/cart";
 import { showModalWindow } from "./ts/purchase-window/startPurchaseWindow";
-
+import { confirmBtnClick } from "./ts/confirmBtnClick";
 
 const page = document.body;
 
@@ -37,5 +37,5 @@ switch(page.id) {
 
 cartClick();
 purchaseWindowClick();
-
+confirmBtnClick();
 

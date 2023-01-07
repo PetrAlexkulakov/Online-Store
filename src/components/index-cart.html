@@ -82,16 +82,20 @@
                     <div class="person-details">
                         <h2 class="person-details__title">Person details</h2>
                         <div class="person-name form-item">
-                            <input class="form-item__input" type="text" placeholder="Name">
+                            <input class="form-item__input person-name__input" type="text" placeholder="Name"
+                                name="personName" required>
                         </div>
                         <div class="phone-number form-item">
-                            <input class="form-item__input" type="text" placeholder="Phone number">
+                            <input class="form-item__input phone-number__input" type="tel" placeholder="Phone number"
+                                name="phoneNumber" minlength="10" maxlength="10" required>
                         </div>
                         <div class="address form-item">
-                            <input class="form-item__input" type="text" placeholder="Delivery address">
+                            <input class="form-item__input address__input" type="text" placeholder="Delivery address"
+                                name="address" required>
                         </div>
                         <div class="email form-item">
-                            <input class="form-item__input" type="text" placeholder="E-mail">
+                            <input class="form-item__input email__input" type="email" placeholder="E-mail" name="email"
+                                required>
                         </div>
                     </div>
                     <div class="card-details">
@@ -101,16 +105,17 @@
                                 <img class="card-data__img"
                                     src="https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
                                     alt="card-logo">
-                                <input class="card-data__input card-number__input" type="text"
-                                    placeholder="Card number">
+                                <input class="card-data__input card-number__input" type="text" placeholder="Card number"
+                                    minlength="19" maxlength="19">
                             </div>
                             <div class="other-data">
                                 <div class="valid-data">VALID:
-                                    <input class="card-data__input other-data__input" type="text"
-                                        placeholder="Valid Thru">
+                                    <input class="card-data__input other-data__input card-date__input" type="text"
+                                        placeholder="Valid Thru" minlength="5" maxlength="5">
                                 </div>
                                 <div class="cvv-data">CVV:
-                                    <input class="card-data__input other-data__input" type="text" placeholder="Code">
+                                    <input class="card-data__input other-data__input cvv__input" type="text"
+                                        placeholder="Code" minlength="3" maxlength="3">
                                 </div>
                             </div>
                         </div>
