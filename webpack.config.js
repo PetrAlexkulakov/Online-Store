@@ -65,15 +65,11 @@ const baseConfig = {
         path: path.resolve(__dirname, './public'),
     },
     plugins: [
-        // new HtmlWebpackPlugin([{
-        //   template: path.resolve(__dirname, './src/404.html'),
-        //   filename: '404.html',
-        // },
-        // {
-        //   template: path.resolve(__dirname, './src/index.html'),
-        //   filename: 'index.html',
-        // }
-        // ]),
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, './src/404.html'),
+          filename: '404.html',
+        }
+        ),
         new HtmlWebpackPlugin(
         {
           template: path.resolve(__dirname, './src/index.html'),
