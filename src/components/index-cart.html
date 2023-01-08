@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Online Store</title>
 </head>
 
 <body id="cart">
@@ -74,6 +74,53 @@
                     </span>
                     <button class="btn__buy-now">BUY NOW</button>
                 </div>
+            </div>
+        </div>
+        <div class="modal-window-wrapper">
+            <div class="modal-window">
+                <form class="modal-window__content">
+                    <div class="person-details">
+                        <h2 class="person-details__title">Person details</h2>
+                        <div class="person-name form-item">
+                            <input class="form-item__input person-name__input" type="text" placeholder="Name"
+                                name="personName">
+                        </div>
+                        <div class="phone-number form-item">
+                            <input class="form-item__input phone-number__input" type="tel" placeholder="Phone number"
+                                name="phoneNumber" minlength="10" maxlength="18">
+                        </div>
+                        <div class="address form-item">
+                            <input class="form-item__input address__input" type="text" placeholder="Delivery address"
+                                name="address">
+                        </div>
+                        <div class="email form-item">
+                            <input class="form-item__input email__input" type="email" placeholder="E-mail" name="email">
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <h2 class="card-details__title">Credit card details</h2>
+                        <div class="card-data">
+                            <div class="card-data__number">
+                                <img class="card-data__img"
+                                    src="https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
+                                    alt="card-logo">
+                                <input class="card-data__input card-number__input" type="text" placeholder="Card number"
+                                    minlength="19" maxlength="19">
+                            </div>
+                            <div class="other-data">
+                                <div class="valid-data">VALID:
+                                    <input class="card-data__input other-data__input card-date__input" type="text"
+                                        placeholder="Valid Thru" minlength="5" maxlength="5">
+                                </div>
+                                <div class="cvv-data">CVV:
+                                    <input class="card-data__input other-data__input cvv__input" type="text"
+                                        placeholder="Code" minlength="3" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn__confirm" type="button">CONFIRM</button>
+                </form>
             </div>
         </div>
     </main>
