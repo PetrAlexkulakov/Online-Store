@@ -1,5 +1,5 @@
 import { dataProducts } from "../dataProducts";
-import { ourProduct, addToCart } from "../addToCart";
+import { ourProduct } from "../addToCart";
 import { addButtonEvent } from "../addButtonEvent";
 import { createTotal } from "../createTotal";
 import { implicateCartNumber } from "../implicateCartNumber";
