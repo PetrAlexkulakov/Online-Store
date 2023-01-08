@@ -66,17 +66,23 @@ const baseConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin(
-        {
-          template: path.resolve(__dirname, './src/index.html'),
-          filename: 'index.html',
-        }
-        ),
-        new HtmlWebpackPlugin(
           {
             template: path.resolve(__dirname, './src/components/404.html'),
             filename: '404.html',
           }
           ),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/index.html'),
+            filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, './src/components/index-cart.html'),
+          filename: 'index-cart.html',
+      }),
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, './src/components/details.html'),
+          filename: 'details.html',
+      }),
         new CleanWebpackPlugin(),
         new EslingPlugin({ extensions: 'ts' }),
         new MiniCssExtractPlugin()

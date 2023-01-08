@@ -5,10 +5,17 @@ import { filtraite } from "./ts/main-page/mainFilters";
 import { createSearch } from "./ts/main-page/mainSearch";
 import { createFilterButtons } from "./ts/main-page/mainFilterButtons";
 import { createFiltersSlide } from "./ts/main-page/mainFiltersSlide";
+import { cartClick } from "./ts/cartClick";
+import { purchaseWindowClick } from "./ts/purchaseWindowClick";
+import { createDetails } from "./ts/details-page/createDetailsPage";
+
+import { startCart } from "./ts/cart-page/cart";
+import { showModalWindow } from "./ts/purchase-window/startPurchaseWindow";
+import { confirmBtnClick } from "./ts/confirmBtnClick";
 
 const page = document.body;
 
-switch(page.id){
+switch(page.id) {
     case 'index':
         putProducts();
         createFilters();
@@ -17,4 +24,18 @@ switch(page.id){
         createFilterButtons();
         createFiltersSlide();
     break;
+    case 'details':
+        createDetails();
+    break;
+    case 'cart':
+        startCart();
+    break;
+    case 'cartModalWindow':
+        showModalWindow();
+    break;
 }
+
+cartClick();
+purchaseWindowClick();
+confirmBtnClick();
+

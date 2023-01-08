@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+</head>
+
+<body id="cart">
+    <header class="header header-main">
+        <div class="header__brand">
+            <div class="logo">🛍</div>
+            <h2 class="brand-name">Online Store</h2>
+        </div>
+        <div class="header__total-price">
+            <span class="total-price__price">Cart total: €0.00</span>
+        </div>
+        <div class="header__cart">
+            <div class="header__cart__number">
+                <div class="header__cart__number__content">0</div>
+            </div>
+    </header>
+    <main class="main-main">
+        <div class="cart-page">
+            <h1 class="empty-cart">Cart is empty</h1>
+            <div class="cart-wrapper">
+                <div class="cart-products">
+                    <div class="cart-products__header">
+                        <h2>
+                            Products In Cart
+                        </h2>
+                        <div class="page-control">
+                            <div class="products-amount">
+                                <label for="amoutInput"><span class="products-amount__text">LIMIT:</span></label>
+                                <input type="number" id="amoutInput" class="products-amount__input" min="1" value="3">
+                            </div>
+                            <div class="page-numbers">
+                                <span class="page-numbers__text">PAGE:</span>
+                                <button class="page-btn-back">
+                                    < </button>
+                                        <span class="page-number">1</span>
+                                        <button class="page-btn-forward"> > </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-products__items">
+                    </div>
+
+                </div>
+                <div class="total-cart">
+                    <h2>Summary</h2>
+                    <div class="total-price">
+                        <span class="total-price__text">Products:</span>
+                        <span class="total-items">0</span>
+                    </div>
+                    <div id="startPrice" class="total-price">
+                        <span class="total-price__text">Total:</span>
+                        <span class="total-money">€0</span>
+                    </div>
+                    <div id="resultPrice" class="total-price result-price">
+                        <span class="total-price__text">Total:</span>
+                        <span class="total-money result-price__money">€0</span>
+                    </div>
+                    <div class="applied-codes"></div>
+                    <div class="promo-code">
+                        <input type="search" class="promo-code__input" placeholder="Enter promo code">
+                    </div>
+                    <div class="found-promo">
+                    </div>
+                    <span class="promo-ex">
+                        Promo for test: 'RS', 'EPM'
+                    </span>
+                    <button class="btn__buy-now">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-window-wrapper">
+            <div class="modal-window">
+                <form class="modal-window__content">
+                    <div class="person-details">
+                        <h2 class="person-details__title">Person details</h2>
+                        <div class="person-name form-item">
+                            <input class="form-item__input person-name__input" type="text" placeholder="Name"
+                                name="personName">
+                        </div>
+                        <div class="phone-number form-item">
+                            <input class="form-item__input phone-number__input" type="tel" placeholder="Phone number"
+                                name="phoneNumber" minlength="10" maxlength="18">
+                        </div>
+                        <div class="address form-item">
+                            <input class="form-item__input address__input" type="text" placeholder="Delivery address"
+                                name="address">
+                        </div>
+                        <div class="email form-item">
+                            <input class="form-item__input email__input" type="email" placeholder="E-mail" name="email">
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <h2 class="card-details__title">Credit card details</h2>
+                        <div class="card-data">
+                            <div class="card-data__number">
+                                <img class="card-data__img"
+                                    src="https://i.guim.co.uk/img/media/b73cc57cb1d46ae742efd06b6c58805e8600d482/16_0_2443_1466/master/2443.jpg?width=700&quality=85&auto=format&fit=max&s=fb1dca6cdd4589cd9ef2fc941935de71"
+                                    alt="card-logo">
+                                <input class="card-data__input card-number__input" type="text" placeholder="Card number"
+                                    minlength="19" maxlength="19">
+                            </div>
+                            <div class="other-data">
+                                <div class="valid-data">VALID:
+                                    <input class="card-data__input other-data__input card-date__input" type="text"
+                                        placeholder="Valid Thru" minlength="5" maxlength="5">
+                                </div>
+                                <div class="cvv-data">CVV:
+                                    <input class="card-data__input other-data__input cvv__input" type="text"
+                                        placeholder="Code" minlength="3" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn__confirm" type="button">CONFIRM</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer main-footer">
+        <a href="https://github.com/PetrAlexkulakov">Author 1</a>
+        <a href="https://rs.school/js/" class="course-logo"></a>
+        <p>Online Store</p>
+        <p>2022</p>
+        <a href="https://github.com/Elena-Amelia">Author 2</a>
+    </footer>
+</body>
+
+</html>
