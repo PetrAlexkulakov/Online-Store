@@ -8,6 +8,6 @@ export function createTotal(total: HTMLDivElement){
         const totalPrices: number = cartProducts.reduce(
             (sum: number, item: typeof cartExample) => sum + Number(item.price), 0);
 
-        total.textContent = `Cart total: €${totalPrices}`;
+        total.textContent = `Cart total: €${(totalPrices).toFixed(2)}`;
     }
 }

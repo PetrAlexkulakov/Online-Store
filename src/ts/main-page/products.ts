@@ -102,7 +102,7 @@ function _createItemButtons(wrapper: HTMLDivElement, product: productType){
     const addCart = document.createElement('button');
     addCart.classList.add('button-add');
     if (productInCart !== undefined){
-        total.textContent = `Cart total: €${Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))}`;
+        total.textContent = `Cart total: €${(Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))).toFixed(2)}`;
         addCart.textContent = 'DROP FROM CART';
         cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
     } else
