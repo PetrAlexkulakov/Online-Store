@@ -42,5 +42,4 @@ export function changePromoCodeMoney() {
 
   const resultSum = (itemSum * (1 - itemDiscSum / 100)).toFixed(2);
   resultPriceMoney.innerHTML = `€${resultSum}`;
-  headerMoney.innerHTML = `Cart total: €${resultSum}`;
 }
