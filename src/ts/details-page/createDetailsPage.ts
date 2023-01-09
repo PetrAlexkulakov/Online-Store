@@ -1,5 +1,5 @@
 import { dataProducts } from "../dataProducts";
-import { ourProduct, addToCart } from "../addToCart";
+import { ourProduct } from "../addToCart";
 import { addButtonEvent } from "../addButtonEvent";
 import { createTotal } from "../createTotal";
 import { implicateCartNumber } from "../implicateCartNumber";
@@ -10,6 +10,7 @@ export function createDetails(){
     const product = dataProducts.products.find((item) => item.id === idInLocal);
     const total = document.querySelector('.total-price__price') as HTMLDivElement;
 
+    localStorage.setItem('isModaleOpen', 'false');
     if (product !== undefined){
         createTotal(total);
         implicateCartNumber();
@@ -120,6 +121,7 @@ function _createButtonsBlock(product: ourProduct){
         add.textContent = 'ADD TO CART';
         else add.textContent = 'DROP FROM CART';
         buy.textContent = 'BUY NOW';
+        buy.classList.add('details__buy-now');
 
         cartButtons.append(`€${product.price}`);
         cartButtons.append(add);
@@ -136,7 +138,9 @@ function _buttonsEvents(add: HTMLButtonElement, buy: HTMLButtonElement, product:
         addButtonEvent(add, total, cartNumber, product);
     });
     buy.addEventListener('click', () => {
-        addToCart(product);
+        if (add.textContent === 'ADD TO CART') addButtonEvent(add, total, cartNumber, product);
+        localStorage.setItem('isModaleOpen', 'true');
+        window.location.href = "./index-cart.html";
         //нужно добавить переброс на страницу с корзиной
     });
 }

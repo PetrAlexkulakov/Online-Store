@@ -12,6 +12,7 @@ export interface productInLocal{
 export function putProducts(){
     const products = dataProducts.products;
 
+    localStorage.setItem('isModaleOpen', 'false');
     products.forEach((product) => _putProduct(product));
     createSorts();
 
