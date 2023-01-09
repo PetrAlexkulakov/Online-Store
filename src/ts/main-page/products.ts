@@ -16,6 +16,26 @@ export function putProducts(){
 
     localStorage.setItem('isModaleOpen', 'false');
     products.forEach((product) => _putProduct(product));
+
+    processProductsImage(products);
+
+    function delay() {
+        return new Promise(resolve => setTimeout(resolve, 100));
+    }
+
+    async function delayedImg(item: HTMLElement, product: productType) {
+        await delay();
+        item.style.background = `url(${product.images[0]}) 0% 0% / cover`;
+    }
+
+    async function processProductsImage(products: productType[]) {
+        const items = document.querySelectorAll<HTMLElement>('.product-item');
+        let counter = 0;
+        for (const item of items) {
+            await delayedImg(item, products[counter++]);
+        }
+    }
+
     createSorts();
 
     setTimeout(() => 
@@ -38,7 +58,7 @@ function _putProduct(product: productType){
 
     const item = document.createElement('div');
     item.classList.add('product-item');
-    item.style.background = `url(${product.images[0]}) 0% 0% / cover`;
+    // item.style.background = `url(${product.images[0]}) 0% 0% / cover`;
     item.setAttribute('id', String(product.id));
     item.setAttribute('price', String(product.price));
     item.setAttribute('stock', String(product.stock));
