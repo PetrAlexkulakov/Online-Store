@@ -21,6 +21,8 @@ export function startCart() {
     item.addEventListener("click", goToDetailsPage);
   });
 
+}
+
   function goToDetailsPage(e: Event) {
     const target = e.target as HTMLElement;
     const product = target?.closest(".cart-products__item_wrapper");
@@ -29,5 +31,3 @@ export function startCart() {
       window.location.href = "./details.html";
     }
   }
-
-}
