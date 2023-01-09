@@ -4,7 +4,13 @@ export function implicateCartNumber(){
     const localStor = localStorage.getItem('cartProducts');
     if (localStor){
         cartProducts = JSON.parse(localStor);
-    }
+        const cartExample = cartProducts[0];
+        const productNumbers: number = cartProducts.reduce(
+            (sum: number, item: typeof cartExample) => sum + item.count, 0);
 
-    cartNumber.textContent = String(cartProducts.length);
+        cartNumber.textContent = String(productNumbers);
+    } else {
+        
+        cartNumber.textContent = String(cartProducts.length);
+    }
 }

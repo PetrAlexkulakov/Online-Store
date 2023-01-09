@@ -1,6 +1,8 @@
 import { dataProducts } from "../dataProducts";
 import { createSorts } from "./sortProducts";
 import { addButtonEvent } from "../addButtonEvent";
+import { createTotal } from "../createTotal";
+import { implicateCartNumber } from "../implicateCartNumber";
 
 type productType = typeof dataProducts.products[1];
 export interface productInLocal{
@@ -90,22 +92,20 @@ function _putSmallDescription(element: HTMLDivElement, product: productType){
 
 function _createItemButtons(wrapper: HTMLDivElement, product: productType){
     const total = document.querySelector('.total-price__price') as HTMLDivElement;
-    const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
     let cartProducts = [];
     const localStor = localStorage.getItem('cartProducts');
     if (localStor){
         cartProducts = JSON.parse(localStor);
     }
     const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
-
     const buttonsWrapper = document.createElement('div');
     buttonsWrapper.classList.add('items__wrapper-buttons');
     const addCart = document.createElement('button');
     addCart.classList.add('button-add');
     if (productInCart !== undefined){
-        total.textContent = `Cart total: €${(Number(product.price) + Number(total.textContent?.replace('Cart total: €', ''))).toFixed(2)}`;
+        createTotal(total);
+        implicateCartNumber();
         addCart.textContent = 'DROP FROM CART';
-        cartNumber.textContent = String(Number(cartNumber.textContent) + 1);
     } else
     addCart.textContent = 'ADD TO CART';
     buttonsWrapper.appendChild(addCart);

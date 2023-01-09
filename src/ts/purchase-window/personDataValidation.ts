@@ -1,6 +1,6 @@
 import { personNameIn, phoneNumberIn, addressIn, emailIn } from "./startPurchaseWindow";
 
-const validName = /^[^a-zа-яё]{1,}[\S]{2,}\s[^a-zа-яё]{1,}[\S]{2,}.*$/;
+const validName = /^[\S]{3,}\s[\S]{3,}.*$/;
 const validPhoneNumber = /[\\+][0-9]{9,}/;
 const validAddress = /^[\S]{5,}\s[\S]{5,}\s[\S]{5,}.*$/;
 const validEmail = /^[\S]+@[\w-]+\.[A-Za-z]{2,4}$/;
