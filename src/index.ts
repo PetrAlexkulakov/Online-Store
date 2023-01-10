@@ -13,6 +13,7 @@ import { startCart } from "./ts/cart-page/cart";
 import { showModalWindow } from "./ts/purchase-window/startPurchaseWindow";
 import { confirmBtnClick } from "./ts/confirmBtnClick";
 import { goToIndex } from "./ts/goToIndex";
+import { cartProductsClick } from "./ts/cartProductsClick";
 
 const page = document.body;
 
@@ -41,3 +42,4 @@ cartClick();
 purchaseWindowClick();
 confirmBtnClick();
 goToIndex();
+cartProductsClick();

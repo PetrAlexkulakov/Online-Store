@@ -1,6 +1,7 @@
 import { dataProducts } from "../dataProducts";
 import { CartLocalStor } from "./cartTypes";
 import { productsItems } from "./cartConst";
+import { cartProductsClick } from "../cartProductsClick";
 
 export function displayCartProductItems(
   arrData: CartLocalStor[],
@@ -55,9 +56,7 @@ export function displayCartProductItems(
               </div>
               <div class="item__number-control_btns">
                   <button class="item__number-control_btn btn__add">+</button>
-                  <span class = "item__number-control_count">${
-                    item.count
-                  }</span>
+                  <span class = "item__number-control_count">${item.count}</span>
                   <button class="item__number-control_btn btn__remove">-</button>
               </div>
               <div class="item__price">€${productPrice}.00</div>
@@ -65,6 +64,7 @@ export function displayCartProductItems(
           </div>`;
     productsItems?.appendChild(cartProductItemWrap);
   });
+  cartProductsClick();
 }
 
 export function showNotEmptyCart() {
