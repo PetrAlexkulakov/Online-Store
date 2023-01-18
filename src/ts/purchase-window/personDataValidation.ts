@@ -8,24 +8,24 @@ const validEmail = /^[\S]+@[\w-]+\.[A-Za-z]{2,4}$/;
 export function checkPersonDataInput(this: HTMLInputElement, e: Event) {
     if (!personNameIn || !phoneNumberIn || !addressIn || !emailIn) return;
     let validValue = /0/;
-    switch(this) {
-                case personNameIn: {
-                     validValue = validName;
-                    break;
-                }
-                case phoneNumberIn: {
-                    validValue = validPhoneNumber;
-                    break;
-                }
-                case addressIn: {
-                    validValue = validAddress;
-                    break;
-                }
-                case emailIn: {
-                    validValue = validEmail;
-                    break;
-                }
-            }
+    switch (this) {
+        case personNameIn: {
+            validValue = validName;
+            break;
+        }
+        case phoneNumberIn: {
+            validValue = validPhoneNumber;
+            break;
+        }
+        case addressIn: {
+            validValue = validAddress;
+            break;
+        }
+        case emailIn: {
+            validValue = validEmail;
+            break;
+        }
+    }
 
     if (!validValue.test(this.value) || this.value.length === 0) {
     if (this?.classList.contains('invalid')) return;

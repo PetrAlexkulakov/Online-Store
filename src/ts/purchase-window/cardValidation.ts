@@ -52,7 +52,7 @@ export function checkCardInput(this: HTMLInputElement, e: Event) {
 }
 
 export function formatCardNumber(this: HTMLInputElement) {
-  this.value = this.value.replace(/[^\d]/g, "").substring(0, 16);
+  this.value = this.value.replace(/\D/g, "").substring(0, 16);
   const resultCardNum = this.value.match(/.{1,4}/g)?.join(" ");
   if (!resultCardNum || !cardDataImg) return;
   this.value = resultCardNum;
@@ -89,7 +89,7 @@ export function formatCardNumber(this: HTMLInputElement) {
 }
 
 export function formatCardDate(this: HTMLInputElement) {
-  this.value = this.value.replace(/[^\d]/g, "").substring(0, 6);
+  this.value = this.value.replace(/\D/g, "").substring(0, 6);
   const resultCardDate = this.value.match(/.{1,2}/g)?.join("/");
   if (!resultCardDate) return;
   this.value = resultCardDate;
@@ -104,7 +104,7 @@ export function formatCardDate(this: HTMLInputElement) {
 }
 
 export function formatCardCvv(this: HTMLInputElement) {
-  this.value = this.value.replace(/[^\d]/g, "");
+  this.value = this.value.replace(/\D/g, "");
   if (+this.value.length === 3) {
     const errorDiv = document.querySelector(".card-err-cvv");
     errorDiv?.remove();
