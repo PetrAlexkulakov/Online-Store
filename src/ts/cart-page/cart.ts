@@ -1,6 +1,6 @@
 import { CartLocalStore } from "./cartTypes";
 import { displayCartProductItems } from "./displayCart";
-import { page, productPerPage } from "./changeAmount&Page";
+import { page, productPerPage } from "./changeAmountPage";
 import { changeTotalItemsAndMoney, changePromoCodeMoney } from "./changeMoney";
 import { createAppliedPromo } from "./usePromoCode";
 
