@@ -6,7 +6,6 @@
 }
 
 .cart-wrapper {
-  display: none;
   width: 95%;
   display: flex;
   justify-content: space-between;
@@ -251,16 +250,6 @@
   border-radius: 50%;
   cursor: pointer;
 }
-// .promo-code__input::-webkit-search-cancel-button::after {
-//     content: "✖️";
-//     color: black;
-//     top: 50%;
-//  left: 50%;
-//  transform: translate(-50%, -50%);
-// cursor: pointer;
-// display: block;
-
-// }
 
 .promo-ex {
   display: block;
