@@ -7,17 +7,17 @@ import {
   changeTotalItemsAndMoney,
   changePromoCodeMoney,
 } from "./changeMoney";
-import { CartLocalStor } from "./cartTypes";
+import { CartLocalStore } from "./cartTypes";
 
 const promoCodeInput =
   document.querySelector<HTMLInputElement>(".promo-code__input");
 const appliedCodes = document.querySelector<HTMLElement>(".applied-codes");
 const foundPromo = document.querySelector<HTMLElement>(".found-promo");
 
-let cartProducts: CartLocalStor[] = [];
-const localStor = localStorage.getItem("cartProducts");
-if (localStor) {
-  cartProducts = JSON.parse(localStor);
+let cartProducts: CartLocalStore[] = [];
+const localStore = localStorage.getItem("cartProducts");
+if (localStore) {
+  cartProducts = JSON.parse(localStore);
 }
 
 function showPromoCodes() {

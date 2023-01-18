@@ -113,9 +113,9 @@ function _putSmallDescription(element: HTMLDivElement, product: productType){
 function _createItemButtons(wrapper: HTMLDivElement, product: productType){
     const total = document.querySelector('.total-price__price') as HTMLDivElement;
     let cartProducts = [];
-    const localStor = localStorage.getItem('cartProducts');
-    if (localStor){
-        cartProducts = JSON.parse(localStor);
+    const localStore = localStorage.getItem('cartProducts');
+    if (localStore){
+        cartProducts = JSON.parse(localStore);
     }
     const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
     const buttonsWrapper = document.createElement('div');

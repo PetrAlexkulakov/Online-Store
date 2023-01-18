@@ -1,10 +1,10 @@
 import { dataProducts } from "../dataProducts";
-import { CartLocalStor } from "./cartTypes";
+import { CartLocalStore } from "./cartTypes";
 import { productsItems } from "./cartConst";
 import { cartProductsClick } from "../cartProductsClick";
 
 export function displayCartProductItems(
-  arrData: CartLocalStor[],
+  arrData: CartLocalStore[],
   rowPerPage: number,
   page: number
 ): Element | undefined {
@@ -71,10 +71,10 @@ export function showNotEmptyCart() {
   const cartWrap = document.querySelector<HTMLElement>(".cart-wrapper");
   const emptyCart = document.querySelector<HTMLElement>(".empty-cart");
   if (!cartWrap || !emptyCart) return;
-  let cartProducts: CartLocalStor[] = [];
-  const localStor = localStorage.getItem("cartProducts");
-  if (localStor) {
-    cartProducts = JSON.parse(localStor);
+  let cartProducts: CartLocalStore[] = [];
+  const localStore = localStorage.getItem("cartProducts");
+  if (localStore) {
+    cartProducts = JSON.parse(localStore);
   }
   if (cartProducts.length === 0) {
     cartWrap.style.display = "none";

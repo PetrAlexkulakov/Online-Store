@@ -4,9 +4,9 @@ import { ourProduct } from "./addToCart";
 export function addButtonEvent(addCart: HTMLButtonElement, total: HTMLDivElement, cartNumber: HTMLDivElement, product: ourProduct){
     if (addCart.textContent === 'ADD TO CART'){
         let cartProducts = [];
-        const localStor = localStorage.getItem('cartProducts');
-        if (localStor){
-            cartProducts = JSON.parse(localStor);
+        const localStore = localStorage.getItem('cartProducts');
+        if (localStore){
+            cartProducts = JSON.parse(localStore);
         }
         const nwProduct = {
             id: product.id,

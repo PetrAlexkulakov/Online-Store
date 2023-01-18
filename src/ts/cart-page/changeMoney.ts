@@ -1,4 +1,4 @@
-import { CartLocalStor, AllPromoCodes } from "./cartTypes";
+import { CartLocalStore, AllPromoCodes } from "./cartTypes";
 
 const totalItems = document.querySelector<HTMLElement>(".total-items");
 const totalMoney = document.querySelector<HTMLElement>(".total-money");
@@ -10,7 +10,7 @@ export const resultPriceMoney = document.querySelector<HTMLElement>(".result-pri
 let itemCounts = 0;
 let itemSum = 0;
 
-export function changeTotalItemsAndMoney(arrData: CartLocalStor[]) {
+export function changeTotalItemsAndMoney(arrData: CartLocalStore[]) {
   if (!totalItems || !totalMoney || !headerItems || !headerMoney) return;
   itemCounts = 0;
   itemSum = 0;

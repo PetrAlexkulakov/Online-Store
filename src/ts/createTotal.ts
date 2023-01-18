@@ -1,9 +1,9 @@
 export function createTotal(total: HTMLDivElement){
     let cartProducts = [];
-    const localStor = localStorage.getItem('cartProducts');
+    const localStore = localStorage.getItem('cartProducts');
 
-    if (localStor){
-        cartProducts = JSON.parse(localStor);
+    if (localStore){
+        cartProducts = JSON.parse(localStore);
         const cartExample = cartProducts[0];
         const totalPrices: number = cartProducts.reduce(
             (sum: number, item: typeof cartExample) => sum + item.price * item.count, 0);

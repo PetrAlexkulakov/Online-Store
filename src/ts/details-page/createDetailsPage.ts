@@ -111,9 +111,9 @@ function _createButtonsBlock(product: ourProduct){
         const add = document.createElement('button');
         const buy = document.createElement('button');
         let cartProducts = [];
-        const localStor = localStorage.getItem('cartProducts');
-        if (localStor){
-            cartProducts = JSON.parse(localStor);
+        const localStore = localStorage.getItem('cartProducts');
+        if (localStore){
+            cartProducts = JSON.parse(localStore);
         }
         const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
 

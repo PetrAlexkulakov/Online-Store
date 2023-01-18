@@ -2,12 +2,12 @@ import { productAmountInput, productsItems } from "./cartConst";
 import { displayCartProductItems } from "./displayCart";
 import { dataProducts } from "../dataProducts";
 import { changeTotalItemsAndMoney, changePromoCodeMoney } from "./changeMoney";
-import { CartLocalStor } from "./cartTypes";
+import { CartLocalStore } from "./cartTypes";
 
-let cartProducts: CartLocalStor[] = [];
-const localStor = localStorage.getItem("cartProducts");
-if (localStor) {
-  cartProducts = JSON.parse(localStor);
+let cartProducts: CartLocalStore[] = [];
+const localStore = localStorage.getItem("cartProducts");
+if (localStore) {
+  cartProducts = JSON.parse(localStore);
 }
 
 export const pageNumber = document.querySelector<HTMLElement>(".page-number");

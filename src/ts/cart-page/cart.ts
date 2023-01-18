@@ -1,14 +1,14 @@
-import { CartLocalStor } from "./cartTypes";
+import { CartLocalStore } from "./cartTypes";
 import { displayCartProductItems } from "./displayCart";
 import { page, productPerPage } from "./changeAmount&Page";
 import { changeTotalItemsAndMoney, changePromoCodeMoney } from "./changeMoney";
 import { createAppliedPromo } from "./usePromoCode";
 
 export function startCart() {
-  let cartProducts: CartLocalStor[] = [];
-  const localStor = localStorage.getItem("cartProducts");
-  if (localStor) {
-    cartProducts = JSON.parse(localStor);
+  let cartProducts: CartLocalStore[] = [];
+  const localStore = localStorage.getItem("cartProducts");
+  if (localStore) {
+    cartProducts = JSON.parse(localStore);
   }
 
   displayCartProductItems(cartProducts, productPerPage, page);

@@ -19,9 +19,9 @@ export interface ourProduct{
 
 export function addToCart(product: ourProduct){
     let cartProducts = [];
-    const localStor = localStorage.getItem('cartProducts');
-    if (localStor){
-        cartProducts = JSON.parse(localStor);
+    const localStore = localStorage.getItem('cartProducts');
+    if (localStore){
+        cartProducts = JSON.parse(localStore);
     }
     const productInCart = cartProducts.find((item: productInLocal) => String(item.id) === String(product.id));
     cartProducts.splice(cartProducts.indexOf(productInCart),1);

@@ -1,4 +1,4 @@
-export interface CartLocalStor {
+export interface CartLocalStore {
     id: number;
     count: number;
     price: number;
