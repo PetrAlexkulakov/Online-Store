@@ -80,7 +80,6 @@ export function showNotEmptyCart() {
     cartWrap.style.display = "none";
     emptyCart.style.display = "block";
     localStorage.removeItem("cartProducts");
-    //localStorage.removeItem("OSpromoCodes");
   } else {
     cartWrap.style.display = "flex";
     emptyCart.style.display = "none";

@@ -29,6 +29,7 @@ export function changePromoCodeMoney() {
   if (!startPrice || !resultPrice || !resultPriceMoney || !headerMoney) return;
 
   const localStorPromoCodes = localStorage.getItem("OSpromoCodes");
+  
   if (!localStorPromoCodes) return;
   const usedPromoCodes: AllPromoCodes[] = JSON.parse(localStorPromoCodes);
 

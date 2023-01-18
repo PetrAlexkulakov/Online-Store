@@ -1,7 +1,7 @@
 export function cartProductsClick() {
     const itemInfo = document.querySelectorAll<HTMLElement>(".item__info");
     itemInfo.forEach((item) => {
-    item.addEventListener("click", goToDetailsPage);
+        item.addEventListener("click", goToDetailsPage);
     });
   }
 
