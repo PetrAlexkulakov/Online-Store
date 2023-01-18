@@ -16,39 +16,31 @@ export function confirmBtnClick() {
 
   confirmBtn?.addEventListener("click", () => {
     if (cardNumberInput?.value.length === 0) {
-      const myevent = new Event("change");
-      cardNumberInput.dispatchEvent(myevent);
+      cardNumberInput.dispatchEvent(new Event("change"));
     }
     if (cardDateInput?.value.length === 0) {
-      const myevent = new Event("change");
-      cardDateInput.dispatchEvent(myevent);
+      cardDateInput.dispatchEvent(new Event("change"));
     }
     if (cvvInput?.value.length === 0) {
-      const myevent = new Event("change");
-      cvvInput.dispatchEvent(myevent);
+      cvvInput.dispatchEvent(new Event("change"));
     }
     if (personNameIn?.value.length === 0) {
-      const myevent = new Event("input");
-      personNameIn.dispatchEvent(myevent);
+      personNameIn.dispatchEvent(new Event("input"));
     }
     if (phoneNumberIn?.value.length === 0) {
-      const myevent = new Event("input");
-      phoneNumberIn.dispatchEvent(myevent);
+      phoneNumberIn.dispatchEvent(new Event("input"));
     }
     if (addressIn?.value.length === 0) {
-      const myevent = new Event("input");
-      addressIn.dispatchEvent(myevent);
+      addressIn.dispatchEvent(new Event("input"));
     }
     if (emailIn?.value.length === 0) {
-      const myevent = new Event("input");
-      emailIn.dispatchEvent(myevent);
+      emailIn.dispatchEvent(new Event("input"));
     }
 
     const invalidInputs = document.querySelectorAll(".invalid");
     if (invalidInputs.length === 0) {
       if (!modalWindow || !modalWindowWrap) return;
       localStorage.removeItem("cartProducts");
-      // localStorage.removeItem("OSpromoCodes");
       showNotEmptyCart();
       modalWindow.style.display = "none";
       const thankDiv = document.createElement("div");
@@ -66,7 +58,8 @@ export function confirmBtnClick() {
       }, 1000);
 
       setTimeout(() => {
-        (window.location.href = "index.html"), thankDiv.remove();
+        (window.location.href = "index.html");
+        thankDiv.remove();
       }, 6000);
     }
   });
