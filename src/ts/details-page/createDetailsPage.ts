@@ -141,6 +141,5 @@ function _buttonsEvents(add: HTMLButtonElement, buy: HTMLButtonElement, product:
         if (add.textContent === 'ADD TO CART') addButtonEvent(add, total, cartNumber, product);
         localStorage.setItem('isModaleOpen', 'true');
         window.location.href = "./index-cart.html";
-        //нужно добавить переброс на страницу с корзиной
     });
 }

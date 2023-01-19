@@ -58,7 +58,6 @@ function _putProduct(product: productType){
 
     const item = document.createElement('div');
     item.classList.add('product-item');
-    // item.style.background = `url(${product.images[0]}) 0% 0% / cover`;
     item.setAttribute('id', String(product.id));
     item.setAttribute('price', String(product.price));
     item.setAttribute('stock', String(product.stock));

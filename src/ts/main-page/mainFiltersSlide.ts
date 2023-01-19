@@ -17,8 +17,6 @@ function _addFilterWork(type: string){
   let fromInput: HTMLDivElement;
   let toInput: HTMLDivElement;
   const values = _findNeedable(type);
-  // const min = values.first || 0;
-  // const max = values.second || 48;
   const ratio = values.third || 1;
 
   if (type === 'price'){

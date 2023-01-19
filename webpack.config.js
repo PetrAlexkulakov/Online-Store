@@ -10,10 +10,6 @@ const baseConfig = {
     mode: 'development',
     module: {
         rules: [
-            // {
-            //     test: /\.css$/i,
-            //     use: ['style-loader', 'css-loader']
-            // },
             {
                 test: /.(sa|sc|c)ss$/,
                 use: [
@@ -41,20 +37,6 @@ const baseConfig = {
                 use: 'ts-loader',
                 include: [path.resolve(__dirname,'src')]
             },
-            // {
-            //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            //     type: 'asset/resource',
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 name: '[name].[ext]',
-            //                 outputPath: './',
-            //                 useRelativePath: true
-            //             }
-            //         }
-            //     ]
-            // }
         ],
     },
     resolve: {
