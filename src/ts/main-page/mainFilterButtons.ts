@@ -12,11 +12,12 @@ export function createFilterButtons(){
     });
 }
 function _copyToClipboard(str: string) {
-    const area = document.createElement('textarea');
+    // const area = document.createElement('textarea');
   
-    document.body.appendChild(area);  
-      area.value = str;
-      area.select();
-      document.execCommand("copy");
-    document.body.removeChild(area);  
+    // document.body.appendChild(area);  
+    //   area.value = str;
+    //   area.select();
+    //   document.execCommand("copy");
+    navigator.clipboard.writeText(str);
+    // document.body.removeChild(area);  
   }
