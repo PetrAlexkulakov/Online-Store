@@ -31,7 +31,7 @@ switch (page.id) {
         break;
     case 'cart':
         startCart();
-        if (localStorage.getItem('isModaleOpen') === 'true') showModalWindow();
+        if (localStorage.getItem('isModalOpen') === 'true') showModalWindow();
         break;
     case 'cartModalWindow':
         showModalWindow();

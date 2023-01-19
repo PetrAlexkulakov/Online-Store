@@ -76,7 +76,7 @@ function _sortBySortOption(){
         option.replace(/Sort by|-DESC|-ASC/i,'') == 'discount' ? 
         'discountPercentage' as keyof typeof productExample : 
         option.replace(/Sort by|-DESC|-ASC/i,'') as keyof typeof productExample;
-        const sortUp = option.match(/ASC/) !== null ? true : false;
+        const sortUp = option.match(/ASC/) !== null;
         const nav = <HTMLElement>document.querySelector('.products__items-products');
         const sortDOM = document.querySelector<HTMLSelectElement>('.sort-bar__select');
 

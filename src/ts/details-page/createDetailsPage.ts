@@ -10,7 +10,7 @@ export function createDetails(){
     const product = dataProducts.products.find((item) => item.id === idInLocal);
     const total = document.querySelector('.total-price__price') as HTMLDivElement;
 
-    localStorage.setItem('isModaleOpen', 'false');
+    localStorage.setItem('isModalOpen', 'false');
     if (product !== undefined){
         createTotal(total);
         implicateCartNumber();
@@ -139,7 +139,7 @@ function _buttonsEvents(add: HTMLButtonElement, buy: HTMLButtonElement, product:
     });
     buy.addEventListener('click', () => {
         if (add.textContent === 'ADD TO CART') addButtonEvent(add, total, cartNumber, product);
-        localStorage.setItem('isModaleOpen', 'true');
+        localStorage.setItem('isModalOpen', 'true');
         window.location.href = "./index-cart.html";
     });
 }
