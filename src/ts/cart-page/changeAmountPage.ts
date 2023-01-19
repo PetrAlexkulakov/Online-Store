@@ -16,11 +16,10 @@ export const pageForwardBtn =
 export const pageBackBtn =
   document.querySelector<HTMLElement>(".page-btn-back");
 
-export let page: number;
+export let page = 1;
 export let productPerPage = Number(productAmountInput?.value);
 export let pageCounts = Math.ceil(cartProducts.length / productPerPage);
 
-page = 1;
 
 export function changeProductAmount() {
   if (!productAmountInput) return;
