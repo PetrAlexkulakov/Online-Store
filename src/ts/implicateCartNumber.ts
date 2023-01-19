@@ -1,6 +1,8 @@
+import { CartLocalStore } from "./cart-page/cartTypes";
+
 export function implicateCartNumber(){
     const cartNumber = document.querySelector('.header__cart__number__content') as HTMLDivElement;
-    let cartProducts = [];
+    let cartProducts: CartLocalStore[] = [];
     const localStore = localStorage.getItem('cartProducts');
     if (localStore){
         cartProducts = JSON.parse(localStore);
@@ -10,7 +12,6 @@ export function implicateCartNumber(){
 
         cartNumber.textContent = String(productNumbers);
     } else {
-        
         cartNumber.textContent = String(cartProducts.length);
     }
 }
