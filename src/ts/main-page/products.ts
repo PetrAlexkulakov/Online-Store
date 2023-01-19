@@ -42,7 +42,7 @@ export function putProducts(){
     {
         const founds = document.querySelector('.founds') as HTMLDivElement;
         const productsCount = Array.from(document.querySelectorAll('.product-item'))
-        .filter((product) => product.classList.contains('hide')).length;
+        .filter((product) => !product.classList.contains('hide')).length;
         founds.textContent = `Founds: ${productsCount}`;
         if (productsCount === 0) {
             const noMessage = document.querySelector<HTMLSpanElement>('.no-products');
