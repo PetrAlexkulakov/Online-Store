@@ -19,7 +19,7 @@ export function displayCartProductItems(
 
   paginatedCartProducts.forEach((item, i) => {
     const lastElemProductImg =
-      dataProducts.products[item.id - 1].images.length - 1; //индекс послед картинка
+      dataProducts.products[item.id - 1].images.length - 1;
     const productImg =
       dataProducts.products[item.id - 1].images[lastElemProductImg];
     const productTitle = dataProducts.products[item.id - 1].title;
