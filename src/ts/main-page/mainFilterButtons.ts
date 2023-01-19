@@ -8,16 +8,6 @@ export function createFilterButtons(){
     copy?.addEventListener('click', () => {
         copy.textContent = 'Copied!';
         setTimeout((copy) => copy.textContent = 'Copy Link', 500, copy);
-        _copyToClipboard(window.location.href);
+        navigator.clipboard.writeText(window.location.href);
     });
 }
-function _copyToClipboard(str: string) {
-    // const area = document.createElement('textarea');
-  
-    // document.body.appendChild(area);  
-    //   area.value = str;
-    //   area.select();
-    //   document.execCommand("copy");
-    navigator.clipboard.writeText(str);
-    // document.body.removeChild(area);  
-  }
