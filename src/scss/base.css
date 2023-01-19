@@ -424,7 +424,6 @@ footer {
 }
 
 .cart-wrapper {
-  display: none;
   width: 95%;
   display: flex;
   justify-content: space-between;

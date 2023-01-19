@@ -17,7 +17,7 @@ import { cartProductsClick } from "./ts/cartProductsClick";
 
 const page = document.body;
 
-switch(page.id) {
+switch (page.id) {
     case 'index':
         putProducts();
         createFilters();
@@ -25,17 +25,17 @@ switch(page.id) {
         createSearch();
         createFilterButtons();
         createFiltersSlide();
-    break;
+        break;
     case 'details':
         createDetails();
-    break;
+        break;
     case 'cart':
         startCart();
         if (localStorage.getItem('isModaleOpen') === 'true') showModalWindow();
-    break;
+        break;
     case 'cartModalWindow':
         showModalWindow();
-    break;
+        break;
 }
 
 cartClick();
