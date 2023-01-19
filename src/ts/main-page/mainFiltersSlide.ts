@@ -46,11 +46,12 @@ function _addFilterWork(type: string){
 }
 
 function _setFromQuery(fromInput: HTMLDivElement, toInput: HTMLDivElement, type: string){
+  const SEPARATOR = '%E2%86%95';
   const oldSearch = window.location.search.slice(1,);
   const oldSearchArray = oldSearch.split('&');
   const ourReg = `${type}=`;
   const ourFilter = oldSearchArray.find(item => item.includes(type))?.replace(ourReg,'');
-  const firstAndSecond = ourFilter?.split('%E2%86%95');
+  const firstAndSecond = ourFilter?.split(SEPARATOR);
 
   if (firstAndSecond !== undefined && type === 'price'){
     fromInput.textContent = '€' + firstAndSecond[1];
@@ -144,6 +145,7 @@ function _controlToInput(toSlider: HTMLInputElement, fromInput: HTMLDivElement, 
 
 function _controlFromSlider(fromSlider: HTMLInputElement, toSlider: HTMLInputElement, fromInput: HTMLDivElement, ratio: number, type: string) {
   const [from, to] = _getParsed(fromSlider, toSlider);
+  const SEPARATOR = '%E2%86%95';
 
   if(from !== undefined && to !== undefined){
     if (from > to) {
@@ -156,12 +158,13 @@ function _controlFromSlider(fromSlider: HTMLInputElement, toSlider: HTMLInputEle
       fromInput.textContent = '€' + String(to * ratio);
       else fromInput.textContent = String(to * ratio);
     }
-    addQuery(type, `${(to * ratio)}%E2%86%95${(from * ratio)}`);
+    addQuery(type, `${(to * ratio)}${SEPARATOR}${(from * ratio)}`);
   }
 }
 
 function _controlToSlider(fromSlider: HTMLInputElement, toSlider: HTMLInputElement, toInput: HTMLDivElement, ratio: number, type: string) {
   const [from, to] = _getParsed(fromSlider, toSlider);
+  const SEPARATOR = '%E2%86%95';
 
   _setToggleAccessible(toSlider);
   if(from !== undefined && to !== undefined){
@@ -176,7 +179,7 @@ function _controlToSlider(fromSlider: HTMLInputElement, toSlider: HTMLInputEleme
       else toInput.textContent = String(to * ratio);
       toSlider.value = String(from);
     }
-    addQuery(type, `${(to * ratio)}%E2%86%95${(from * ratio)}`);
+    addQuery(type, `${(to * ratio)}${SEPARATOR}${(from * ratio)}`);
   }
 }
 
